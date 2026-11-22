@@ -1,0 +1,31 @@
+SOURCE BOOK AND ADAPTED EDUCATIONAL MATERIAL
+
+Think Bayes: Bayesian Statistics in Python, Second Edition
+Allen B. Downey, 2021. ISBN 9781492089469.
+https://allendowney.github.io/ThinkBayes2/
+https://github.com/AllenDowney/ThinkBayes2
+
+The book states that it is available under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0):
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+The source PDF in assets/think-bayes-2e.pdf retains the original English text,
+charts, equations, authorship and source notices. The educational guides,
+examples and questions in content.json are newly authored adaptations for this
+independent learning companion. These adaptations are also offered under
+CC BY-NC-SA 4.0, with attribution to Allen B. Downey for the underlying book.
+They are not an author-reviewed or official translation.
+
+Changes: bilingual concept summaries, original examples and concept checks;
+source page navigation and cropped chart excerpts; scoped review notes where
+the original printed edition needs mathematical or software-version care.
+Individual source pages and chart excerpts are identified in the UI and data.
+
+Keep appropriate credit, source and license links, and indicate modifications.
+The noncommercial and share-alike conditions apply to the licensed content.
+The license does not imply endorsement by the author or publisher, and does
+not grant trademark rights. Separately licensed third-party items retain their
+own notices. Website application code is licensed separately under LICENSE.
+
+PDF.js 6.5.438 is copyright Mozilla Foundation and its contributors and
+licensed under Apache License 2.0. See vendor/PDFJS-LICENSE.txt.
