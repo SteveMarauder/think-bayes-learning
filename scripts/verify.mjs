@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const data=JSON.parse(fs.readFileSync(path.join(root,'content.json'),'utf8'));
@@ -36,8 +37,24 @@ for(const c of data.concepts)assert.ok(data.lessons.some(l=>l.id===c.lessonId));
 for(const f of data.figures){assert.ok(fs.existsSync(path.join(root,f.file)));for(const id of f.lessonIds)assert.ok(data.lessons.some(l=>l.id===id));}
 for(const file of ['index.html','app.js','styles.css','vendor/pdf.mjs','vendor/pdf.worker.mjs','assets/think-bayes-2e.pdf','LICENSE','CONTENT-LICENSE.txt'])assert.ok(fs.statSync(path.join(root,file)).size>0,file);
 const json=JSON.stringify(data);
+assert.equal(data.translation.status,'complete-draft');
+assert.equal(data.translation.translatedSections,195);
+assert.equal(data.translation.coverage.length,20);
+const translationIds=new Set();
+for(const chapter of data.chapters){
+ const translated=JSON.parse(fs.readFileSync(path.join(root,`translations/ch${String(chapter.id).padStart(2,'0')}.json`),'utf8'));
+ assert.deepEqual(translated.map(x=>x.id),chapter.sectionIds);
+ for(const item of translated){
+  assert.ok(!translationIds.has(item.id));translationIds.add(item.id);
+  assert.equal(crypto.createHash('sha256').update(item.en).digest('hex'),item.sourceHash,`${item.id}: source mismatch`);
+  assert.ok(item.zhMarkdown.length>item.en.length*.2,`${item.id}: translation unexpectedly short`);
+  assert.equal(item.zhMarkdown.split('```').length%2,1,`${item.id}: code fence not closed`);
+ }
+}
+assert.equal(translationIds.size,195);
+for(const file of ['tech.css','vendor/marked.umd.js','vendor/purify.min.js','vendor/katex/katex.min.js','vendor/katex/katex.min.css','translations/manifest.json'])assert.ok(fs.statSync(path.join(root,file)).size>0,file);
 assert.ok(!json.includes('C:\\\\Users\\\\'));
 assert.ok(!json.includes('C:/Users/'));
 const p=.5,a=p*.75,b=(1-p)*.5;
 assert.equal(a/(a+b),.6);
-console.log(`PASS: 20 chapters; 195 unique, aligned bilingual guides; 70 source exercises; ${checks} valid concept checks; source-page mappings, assets and cookie reference calculation.`);
+console.log(`PASS: 20 chapters; 195 full-section translations matched to source hashes; 195 supplementary guides; 70 source exercises; ${checks} valid concept checks; local assets and source-page mappings.`);

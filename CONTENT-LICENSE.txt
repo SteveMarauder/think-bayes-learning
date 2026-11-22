@@ -16,7 +16,9 @@ independent learning companion. These adaptations are also offered under
 CC BY-NC-SA 4.0, with attribution to Allen B. Downey for the underlying book.
 They are not an author-reviewed or official translation.
 
-Changes: bilingual concept summaries, original examples and concept checks;
+Changes: faithful Traditional Chinese translation drafts of the supplied
+book's main text (printed pp. 1–304), paired with extracted source text;
+separately labeled bilingual concept summaries, original examples and checks;
 source page navigation and cropped chart excerpts; scoped review notes where
 the original printed edition needs mathematical or software-version care.
 Individual source pages and chart excerpts are identified in the UI and data.
@@ -29,3 +31,7 @@ own notices. Website application code is licensed separately under LICENSE.
 
 PDF.js 6.5.438 is copyright Mozilla Foundation and its contributors and
 licensed under Apache License 2.0. See vendor/PDFJS-LICENSE.txt.
+
+Marked 18.2.1 and KaTeX 0.19.1 retain their MIT license notices in vendor/.
+DOMPurify 3.4.18 retains its Apache-2.0 / MPL-2.0 dual-license notices in
+vendor/DOMPURIFY-LICENSE.txt and vendor/DOMPURIFY-LICENSE-MPL.txt.

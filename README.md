@@ -1,6 +1,16 @@
 # 貝氏慢學 · Bayes Notes
 
-A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**.
+A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
+
+## Version 2 reading experience
+
+- Faithful full-section translation drafts for the main text, printed pages 1–304, across all 195 table-of-contents entries. This includes the author's prose, quotations, exercises, code and numeric output. Original figures stay in the PDF; equations use locally bundled KaTeX where typeset math is available.
+- The original PDF panel has an explicit **Close original** button. Closing persists across language changes and reloads. Pressing Esc closes an enlarged page first, then can collapse the original panel; the enlarged view also closes by its fixed Close button or backdrop.
+- Supplementary concept guides/examples are in a separate, collapsed disclosure, so they are clearly distinguished from faithful source translation.
+- Navy/cyan interface, subtle data grid, restrained highlights and readable typography.
+- Translations load by chapter and retain a SHA-256 reference to the exact extracted source section. The source is the supplied printed PDF; historical author notebooks are consulted only to clarify equation and code formatting.
+
+The translation is a draft and is not an official or author-reviewed edition. The author's original claims, including printed errors and historical software versions, are retained in translation. Mathematical corrections and version notes are shown separately.
 
 ## What is included
 
@@ -13,7 +23,7 @@ A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayes
 - Chinese, English and side-by-side modes; switching languages retains selected answers and reading position by concept block.
 - Browser-local reading/practice records, export and merge-import. No analytics or remote quiz-data storage.
 
-The Chinese and English guides are newly authored educational adaptations, **not a complete literal translation or the original English prose**. The original English is shown in the PDF viewer. Content is an initial concept-guide edition, not an author-reviewed translation. Full independent reruns of every original program and exercise are not claimed. Source-specific mathematical/version notes appear in relevant sections, including Chapters 13, 16 and 19.
+The main Chinese reading area follows the original source in full, rather than replacing it with a summary. Separately labeled supplementary Chinese/English guides and quizzes are newly authored educational adaptations. Original English is available as extracted text and in the faithful PDF page viewer. Full independent reruns of every original program and exercise are not claimed. Source-specific review notes appear in relevant sections, including a unit typo in Chapter 12 and mathematical/software-version care in Chapters 13, 16 and 19.
 
 ## Run locally
 
@@ -43,13 +53,14 @@ The `.nojekyll` file keeps the static assets unchanged. No API key, server, data
 
 ## Content organization
 
-`content.json` is the canonical published content source. Its stable source IDs preserve the original table-of-contents mapping. Each lesson contains its chapter, original title, Chinese guide title, two aligned blocks, example, quiz, source page range and optional review note. Both languages use the same question and option IDs. Reading and practice remain separate records.
+`content.json` is the canonical course/navigation source. `translations/ch01.json` through `ch20.json` hold faithful translated text paired with the exact extracted English source and source hash. Stable IDs preserve the original table-of-contents mapping and existing learner progress. Supplementary guide blocks, examples and quizzes remain independent of the translated text. Both languages use the same question and option IDs. Reading and practice remain separate records.
 
-- `index.html`, `styles.css`, `app.js`: interface and behavior.
+- `index.html`, `styles.css`, `tech.css`, `app.js`: interface and behavior.
 - `content.json`: 195 guides, exercises, concept index and source metadata.
+- `translations/`: complete main-text translation drafts and their source coverage manifest.
 - `assets/think-bayes-2e.pdf`: supplied 2021 source edition.
 - `assets/prior-comparison.png`: original plot excerpt from printed p. 50.
-- `vendor/`: PDF.js 6.5.438, Apache-2.0.
+- `vendor/`: PDF.js 6.5.438, Marked 18.2.1, DOMPurify 3.4.18 and KaTeX 0.19.1, including local fonts and license notices. Markdown is sanitized, and math rendering uses `trust: false`.
 - `server.mjs`: local-only static server with PDF range responses.
 - `scripts/verify.mjs`: content integrity checks.
 
