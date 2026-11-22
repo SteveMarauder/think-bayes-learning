@@ -1,6 +1,6 @@
-import {probabilityHero,mountProbabilityHero} from './home-experience.js?v=7';
+import {probabilityHero,mountProbabilityHero} from './home-experience.js?v=8';
 import {VISUALS,visualForLesson,renderVisual,visualGallery} from './concept-visuals.js?v=6';
-import {JA_UI} from './i18n-ja.js?v=6';
+import {JA_UI} from './i18n-ja.js?v=8';
 import {routeGeometry,wrapMapLabel} from './route-map.js?v=6';
 import {buildLearningPath, CHAPTER_DESTINATIONS} from './learning-path.js?v=6';
 const ICONS = {
@@ -20,6 +20,7 @@ const icon = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $ = s => document.querySelector(s);
 const STORAGE_KEY='bayes-notes:v1';
+const BRAND_TITLE='信念更新中 · Updating Beliefs';
 const labels={
  visuals:['概念圖解','Visual guides','概念図解'],home:['首頁與出處','Home & sources'],map:['學習地圖','Learning map'],chapters:['完整課程','All chapters'],glossary:['概念索引','Concept index'],progress:['我的練習','My learning'],
  contents:['完整課程','ALL CHAPTERS'],search:['搜尋章節、概念…','Search chapters and concepts…'],
@@ -75,7 +76,7 @@ function parseRoute(){const fragment=location.hash.replace(/^#\/?/,'').split('?'
 function sidebar(){
  const query=searchValue.trim().toLocaleLowerCase();
  const chapters=data.chapters.filter(c=>!query||`${c.titleZh} ${c.titleEn} ${chapterTitle(c)}`.toLowerCase().includes(query)||c.sectionIds.some(id=>{const l=data.lessonsById[id];return `${l.titleZh} ${l.titleEn} ${lessonTitle(l)}`.toLowerCase().includes(query);}));
- $('#sidebar').innerHTML=`<a class="brand" href="#/" aria-label="貝氏慢學 Bayes Notes"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 24c6 0 6-16 13-16s7 16 13 16" stroke="currentColor" stroke-width="2"/><path d="M4 24h24" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="8" r="2" fill="currentColor"/></svg></span><span><strong>${text('貝氏慢學','Bayes Notes')}</strong><span class="sub-brand">BAYES, STEP BY STEP</span></span></a>
+ $('#sidebar').innerHTML=`<a class="brand" href="#/" aria-label="${BRAND_TITLE}"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 24c6 0 6-16 13-16s7 16 13 16" stroke="currentColor" stroke-width="2"/><path d="M4 24h24" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="8" r="2" fill="currentColor"/></svg></span><span><strong>信念更新中</strong><span class="sub-brand">UPDATING BELIEFS</span></span></a>
  <nav class="nav-links"><a class="nav-link ${route.name==='home'?'active':''}" href="#/">${icon('book')}${t('home')}</a><a class="nav-link ${['map','chapters'].includes(route.name)?'active':''}" href="#/map">${icon('map')}${t('map')}</a><a class="nav-link ${route.name==='visuals'?'active':''}" href="#/visuals">${icon('chart')}${t('visuals')}</a><a class="nav-link ${route.name==='glossary'?'active':''}" href="#/glossary">${icon('book')}${t('glossary')}</a><a class="nav-link ${route.name==='progress'?'active':''}" href="#/progress">${icon('check')}${t('progress')}</a></nav>
  <div class="sidebar-search">${icon('search')}<input id="chapter-search" type="search" placeholder="${esc(t('search'))}" aria-label="${esc(t('search'))}" value="${esc(searchValue)}" autocomplete="off"></div>
  <div class="sidebar-heading">${t('contents')} · 20</div>
@@ -86,7 +87,7 @@ function sidebar(){
 
 function topbar(){
  const c=currentLesson?data.chapters.find(x=>x.id===currentLesson.chapter):null;
- $('#topbar').innerHTML=`<button class="icon-button menu-button" id="menu-toggle" aria-label="${text('開啟課程目錄','Open course contents')}" aria-expanded="${$('#sidebar').classList.contains('open')}">${icon('menu')}</button><span class="mobile-title">${text('貝氏慢學','Bayes Notes')}</span><div class="topbar-context">${icon('book')}<span>Think Bayes</span><span>/</span><strong>${c?esc(chapterTitle(c)):t(route.name==='home'?'home':route.name)}</strong></div><div class="header-tools"><div class="theme-switch" role="group" aria-label="${text('外觀主題','Color theme')}">${['light','dark'].map(theme=>`<button data-theme-choice="${theme}" class="${state.theme===theme?'selected':''}" aria-pressed="${state.theme===theme}" title="${theme==='light'?text('明亮模式','Light mode'):text('暗色模式','Dark mode')}">${icon(theme==='light'?'sun':'moon')}<span>${theme==='light'?text('明亮','Light'):text('暗色','Dark')}</span></button>`).join('')}</div><div class="language-switch" role="group" aria-label="${text('閱讀語言','Reading language','表示言語')}"><button data-mode="zh" class="${state.mode==='zh'?'selected':''}" aria-pressed="${state.mode==='zh'}">中文</button><button data-mode="en" class="${state.mode==='en'?'selected':''}" aria-pressed="${state.mode==='en'}">English</button><button data-mode="ja" class="${state.mode==='ja'?'selected':''}" aria-pressed="${state.mode==='ja'}">日本語</button><button data-mode="both" class="${state.mode==='both'?'selected':''}" aria-pressed="${state.mode==='both'}">中英對照</button></div></div>`;
+ $('#topbar').innerHTML=`<button class="icon-button menu-button" id="menu-toggle" aria-label="${text('開啟課程目錄','Open course contents')}" aria-expanded="${$('#sidebar').classList.contains('open')}">${icon('menu')}</button><span class="mobile-title">${text('信念更新中','Updating Beliefs','信念更新中')}</span><div class="topbar-context">${icon('book')}<span>Think Bayes</span><span>/</span><strong>${c?esc(chapterTitle(c)):t(route.name==='home'?'home':route.name)}</strong></div><div class="header-tools"><div class="theme-switch" role="group" aria-label="${text('外觀主題','Color theme')}">${['light','dark'].map(theme=>`<button data-theme-choice="${theme}" class="${state.theme===theme?'selected':''}" aria-pressed="${state.theme===theme}" title="${theme==='light'?text('明亮模式','Light mode'):text('暗色模式','Dark mode')}">${icon(theme==='light'?'sun':'moon')}<span>${theme==='light'?text('明亮','Light'):text('暗色','Dark')}</span></button>`).join('')}</div><div class="language-switch" role="group" aria-label="${text('閱讀語言','Reading language','表示言語')}"><button data-mode="zh" class="${state.mode==='zh'?'selected':''}" aria-pressed="${state.mode==='zh'}">中文</button><button data-mode="en" class="${state.mode==='en'?'selected':''}" aria-pressed="${state.mode==='en'}">English</button><button data-mode="ja" class="${state.mode==='ja'?'selected':''}" aria-pressed="${state.mode==='ja'}">日本語</button><button data-mode="both" class="${state.mode==='both'?'selected':''}" aria-pressed="${state.mode==='both'}">中英對照</button></div></div>`;
  $('#menu-toggle').addEventListener('click',()=>{const open=$('#sidebar').classList.toggle('open');document.body.classList.toggle('menu-open',open);$('#menu-toggle').setAttribute('aria-expanded',String(open));});
  document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>changeTheme(b.dataset.themeChoice)));
  document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>changeLanguage(b.dataset.mode)));
@@ -100,7 +101,7 @@ function changeTheme(theme){
  document.querySelectorAll('[data-theme-choice]').forEach(button=>{const selected=button.dataset.themeChoice===theme;button.classList.toggle('selected',selected);button.setAttribute('aria-pressed',String(selected));});
  save();
 }
-function footer(){ $('#footer').innerHTML=`<span>Think Bayes, 2e · Allen B. Downey · ${text('以好奇心，一步一步理解','One idea at a time')}</span><span class="footer-links"><button data-about>${t('attribution')}</button> · <a href="https://github.com/SteveMarauder/think-bayes-learning" target="_blank" rel="noopener">GitHub</a></span>`;$('#footer [data-about]').addEventListener('click',about);}
+function footer(){ $('#footer').innerHTML=`<span>${text('信念更新中','Updating Beliefs','信念更新中')} · Think Bayes, 2e · Allen B. Downey · ${text('以好奇心，一步一步理解','One idea at a time')}</span><span class="footer-links"><button data-about>${t('attribution')}</button> · <a href="https://github.com/SteveMarauder/think-bayes-learning" target="_blank" rel="noopener">GitHub</a></span>`;$('#footer [data-about]').addEventListener('click',about);}
 function densityChart(){
  function path(fn){let coords=[];for(let i=0;i<=100;i++){let x=i/100;coords.push(`${i===0?'M':'L'}${(25+x*320).toFixed(2)},${(190-fn(x)*37).toFixed(2)}`);}return coords.join(' ');}
  const prior=path(x=>6*x*(1-x)),post=path(x=>1320*x**7*(1-x)**3);
@@ -263,11 +264,11 @@ function render(options={}){
  document.documentElement.lang=state.mode==='en'?'en':state.mode==='ja'?'ja':'zh-Hant';
  if(!options.preserveSource){currentSourceLoaded=false;pdfPageNumber=currentLesson?.pdfPage||33;}
  const wasMenuOpen=$('#sidebar').classList.contains('open');sidebar();if(wasMenuOpen)$('#sidebar').classList.add('open');topbar();footer();
- if(route.name==='lesson'){state.lastLesson=currentLesson.id;save();$('#main').innerHTML=lesson(currentLesson);document.title=`${lessonTitle(currentLesson)} · ${text('貝氏慢學','Bayes Notes')}`;bindLesson();}
- else if(route.name==='home'||route.name==='map'||route.name==='chapters'){$('#main').innerHTML=route.name==='home'?landingPage():learningMap();if(route.name==='home')unmountHome=mountProbabilityHero($('#main'),state.mode);else bindConnectedMap();document.title=`${text('貝氏慢學','Bayes Notes')} · Bayes, step by step`;}
- else if(route.name==='visuals'){$('#main').innerHTML=visualGallery(state.mode);document.title=`${t('visuals')} · Bayes Notes`;}
- else if(route.name==='glossary'){$('#main').innerHTML=glossary();$('#glossary-search').addEventListener('input',e=>$('#glossary-results').innerHTML=glossaryCards(e.target.value));document.title=`${t('glossary')} · Bayes Notes`;}
- else if(route.name==='progress'){$('#main').innerHTML=progress();bindProgress();document.title=`${t('progress')} · Bayes Notes`;}
+ if(route.name==='lesson'){state.lastLesson=currentLesson.id;save();$('#main').innerHTML=lesson(currentLesson);document.title=`${lessonTitle(currentLesson)} · ${BRAND_TITLE}`;bindLesson();}
+ else if(route.name==='home'||route.name==='map'||route.name==='chapters'){$('#main').innerHTML=route.name==='home'?landingPage():learningMap();if(route.name==='home')unmountHome=mountProbabilityHero($('#main'),state.mode);else bindConnectedMap();document.title=route.name==='home'?BRAND_TITLE:`${t(route.name)} · ${BRAND_TITLE}`;}
+ else if(route.name==='visuals'){$('#main').innerHTML=visualGallery(state.mode);document.title=`${t('visuals')} · ${BRAND_TITLE}`;}
+ else if(route.name==='glossary'){$('#main').innerHTML=glossary();$('#glossary-search').addEventListener('input',e=>$('#glossary-results').innerHTML=glossaryCards(e.target.value));document.title=`${t('glossary')} · ${BRAND_TITLE}`;}
+ else if(route.name==='progress'){$('#main').innerHTML=progress();bindProgress();document.title=`${t('progress')} · ${BRAND_TITLE}`;}
  else{$('#main').innerHTML=`<div class="page"><div class="empty-state"><h1>${text('找不到這一節','Section not found')}</h1><p>${text('這個連結可能已改變，請從學習地圖繼續。','This link may have changed. Continue from the learning map.')}</p><a class="primary-button" href="#/chapters">${t('home')}</a></div></div>`;}
  bindVisualGuides();
  if(location.hash==='#book-source')$('#book-source')?.scrollIntoView();else if(!options.preserveScroll)window.scrollTo(0,0);

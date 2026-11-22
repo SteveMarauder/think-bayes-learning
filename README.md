@@ -1,4 +1,4 @@
-# 貝氏慢學 · Bayes Notes
+# 信念更新中 · Updating Beliefs
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
@@ -6,7 +6,7 @@ A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayes
 
 An animated, trilingual Bayesian coin demo introduces the course above the original author/source credits. A fixed 40-toss teaching sequence has 26 heads. Starting with Beta(1, 1), the plotted posterior is Beta(heads + 1, tails + 1); curves share the same density scale and the shaded equal-tail interval contains 90% posterior probability. This is independently authored teaching data, not a result from the book.
 
-Visitors can pause, replay or scrub through all observations with a keyboard-accessible slider. Reduced-motion preferences disable autoplay and interpolation. Playback pauses when offscreen or in a hidden tab, stops after 40 observations, and releases all observers/listeners/frame callbacks on navigation. Themes and Chinese/English/Japanese remain available. The site name remains unchanged until a new name is selected.
+Visitors can pause, replay or scrub through all observations with a keyboard-accessible slider. Reduced-motion preferences disable autoplay and interpolation. Playback pauses when offscreen or in a hidden tab, stops after 40 observations, and releases all observers/listeners/frame callbacks on navigation. Themes and Chinese/English/Japanese remain available. The site is named 信念更新中 · Updating Beliefs. Existing browser storage and exported progress formats retain their original identifiers for compatibility.
 
 ## Version 3.1: visual learning supplements
 

@@ -1,9 +1,9 @@
 {
   "name": "think-bayes-learning",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "private": true,
   "type": "module",
-  "description": "Bilingual Think Bayes concept guides, original book pages and simple practice.",
+  "description": "Updating Beliefs: multilingual Think Bayes learning with source pages, interactive visuals and concept practice.",
   "scripts": {
     "start": "node server.mjs",
     "test": "node scripts/verify.mjs && node scripts/verify-learning-path.mjs && node scripts/verify-route-map.mjs && node scripts/build-japanese.mjs && node scripts/verify-visuals.mjs && node scripts/verify-home-experience.mjs",
