@@ -1,0 +1,110 @@
+{
+  "language": "ja",
+  "status": "complete-draft",
+  "authorReviewed": false,
+  "source": "Supplied 2021 second-edition PDF, printed pages 1–304; hashes match the existing extracted English sections.",
+  "sections": 195,
+  "chapters": [
+    {
+      "chapter": 1,
+      "sections": 16,
+      "japaneseCharacters": 12140
+    },
+    {
+      "chapter": 2,
+      "sections": 7,
+      "japaneseCharacters": 7954
+    },
+    {
+      "chapter": 3,
+      "sections": 8,
+      "japaneseCharacters": 8502
+    },
+    {
+      "chapter": 4,
+      "sections": 8,
+      "japaneseCharacters": 8007
+    },
+    {
+      "chapter": 5,
+      "sections": 8,
+      "japaneseCharacters": 7057
+    },
+    {
+      "chapter": 6,
+      "sections": 9,
+      "japaneseCharacters": 9078
+    },
+    {
+      "chapter": 7,
+      "sections": 8,
+      "japaneseCharacters": 8778
+    },
+    {
+      "chapter": 8,
+      "sections": 9,
+      "japaneseCharacters": 9091
+    },
+    {
+      "chapter": 9,
+      "sections": 11,
+      "japaneseCharacters": 12899
+    },
+    {
+      "chapter": 10,
+      "sections": 12,
+      "japaneseCharacters": 10410
+    },
+    {
+      "chapter": 11,
+      "sections": 11,
+      "japaneseCharacters": 9237
+    },
+    {
+      "chapter": 12,
+      "sections": 9,
+      "japaneseCharacters": 11456
+    },
+    {
+      "chapter": 13,
+      "sections": 10,
+      "japaneseCharacters": 11107
+    },
+    {
+      "chapter": 14,
+      "sections": 8,
+      "japaneseCharacters": 11075
+    },
+    {
+      "chapter": 15,
+      "sections": 9,
+      "japaneseCharacters": 10192
+    },
+    {
+      "chapter": 16,
+      "sections": 11,
+      "japaneseCharacters": 10988
+    },
+    {
+      "chapter": 17,
+      "sections": 11,
+      "japaneseCharacters": 11078
+    },
+    {
+      "chapter": 18,
+      "sections": 8,
+      "japaneseCharacters": 8962
+    },
+    {
+      "chapter": 19,
+      "sections": 12,
+      "japaneseCharacters": 12105
+    },
+    {
+      "chapter": 20,
+      "sections": 10,
+      "japaneseCharacters": 13664
+    }
+  ],
+  "license": "CC BY-NC-SA-4.0"
+}

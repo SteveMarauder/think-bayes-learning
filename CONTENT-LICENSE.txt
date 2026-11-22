@@ -16,9 +16,9 @@ independent learning companion. These adaptations are also offered under
 CC BY-NC-SA 4.0, with attribution to Allen B. Downey for the underlying book.
 They are not an author-reviewed or official translation.
 
-Changes: faithful Traditional Chinese translation drafts of the supplied
+Changes: faithful Traditional Chinese and Japanese translation drafts of the supplied
 book's main text (printed pp. 1–304), paired with extracted source text;
-separately labeled bilingual concept summaries, original examples and checks;
+separately labeled Chinese, English and Japanese concept summaries, original examples and checks;
 source page navigation and cropped chart excerpts; scoped review notes where
 the original printed edition needs mathematical or software-version care.
 Individual source pages and chart excerpts are identified in the UI and data.

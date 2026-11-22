@@ -1,0 +1,57 @@
+[
+  {
+    "id": "TB2-CH11-S01",
+    "sourceHash": "d4a7c9c2c6dfc8b05faaa7ca0076f492b198de0ccc9d5215589b0483f7365e5c",
+    "jaMarkdown": "# 第11章　比較\n\nこの章では、複数の変数の分布を扱うために欠かせない道具である同時分布を紹介します。\n\n実際の問題を解く途中で、まず少しばかげた問題を解くために使います。その問題は、一方が他方より背が高いことだけから、2人の身長を求めることです。実際の問題は、対局の結果に基づいて、チェスのプレイヤーやほかの競技の参加者を評価することです。\n\nこれらの問題で同時分布を構築し、尤度を計算するため、外積や似た演算を使います。そこから始めましょう。\n\n## 外積型の演算\n\n多くの有用な演算は、2つの列の「外積」や、別の種類の「外側の」演算として表せます。x と y のような列があるとします。\n\n~~~python\nx = [1, 3, 5]\ny = [2, 4]\n~~~\n\nこれらの列の外積は、それぞれの列から1つずつ取った、すべての値の組の積を含む配列です。外積を計算する方法はいくつかありますが、私が最も汎用的だと思うのは「メッシュグリッド」です。\n\nNumPy はメッシュグリッドを計算する meshgrid という関数を提供しています。2つの列を渡すと、2つの配列を返します。\n\n~~~python\nimport numpy as np\nX, Y = np.meshgrid(x, y)\n~~~\n\n第1の配列は x のコピーを行に並べたもので、行数は y の長さです。\n\n~~~python\nX\n~~~\n\n~~~text\narray([[1, 3, 5],\n       [1, 3, 5]])\n~~~\n\n第2の配列は y のコピーを列に並べたもので、列数は x の長さです。\n\n~~~python\nY\n~~~\n\n~~~text\narray([[2, 2, 2],\n       [4, 4, 4]])\n~~~\n\n2つの配列は同じ大きさなので、乗算のような算術関数の演算対象として使えます。\n\n~~~python\nX * Y\n~~~\n\n~~~text\narray([[ 2,  6, 10],\n       [ 4, 12, 20]])\n~~~\n\nこの結果が x と y の外積です。DataFrame に入れると、よりはっきりわかります。\n\n~~~python\nimport pandas as pd\ndf = pd.DataFrame(X * Y, columns=x, index=y)\ndf\n~~~\n\n~~~text\n  1 3 5\n2 2 6 10\n4 4 12 20\n~~~\n\nx の値は列名として、y の値は行ラベルとして現れます。各要素は、x の値と y の値の積です。\n\nメッシュグリッドを使えば、外和などのほかの演算も計算できます。外和は、x の要素と y の要素の和を含む配列です。\n\n~~~python\nX + Y\n~~~\n\n~~~text\narray([[3, 5, 7],\n       [5, 7, 9]])\n~~~\n\n比較演算子で x と y の要素を比較することもできます。\n\n~~~python\nX > Y\n~~~\n\n~~~text\narray([[False,  True,  True],\n       [False, False,  True]])\n~~~\n\n結果はブール値の配列です。\n\nなぜこれらの演算が役立つのか、まだ明らかでないかもしれませんが、まもなく例を見ます。これで、新たなベイズ問題に取り組む準備ができました。"
+  },
+  {
+    "id": "TB2-CH11-S02",
+    "sourceHash": "df1937ffe84c0a19bbde7a8007de4bf796ee84ddbc657661e6cdbfd9f9dd72d7",
+    "jaMarkdown": "## A の身長はいくらか\n\nアメリカの成人男性の母集団から2人を選び、A と B と呼ぶとします。A のほうが B より背が高いとわかったら、A の身長はいくらでしょうか。\n\nこの問いに答えるため、次を行います。\n\n1. アメリカの男性の身長についての背景情報で、身長の事前分布を作ります。\n2. A と B の身長の同時事前分布を構築します。その意味も説明します。\n3. A のほうが高いという情報で事前分布を更新します。\n4. 同時事後分布から、A の身長の事後分布を取り出します。\n\nアメリカの成人男性の平均身長は178 cm、標準偏差は7.7 cmです。現実には何も厳密に正規ではないので、この分布も厳密には正規分布ではありません。しかし正規分布は実際の分布をかなりよくモデル化するので、A と B の事前分布として使えます。\n\n平均の3標準偏差下から3標準偏差上までの、等間隔の値の配列を示します。範囲は少し切り上げています。\n\n~~~python\nmean = 178\nqs = np.arange(mean-24, mean+24, 0.5)\n~~~\n\nSciPy は、指定した平均と標準偏差の正規分布を表す norm という関数を提供しています。また、その正規分布の確率密度関数（PDF）を評価する pdf を提供します。\n\n~~~python\nfrom scipy.stats import norm\nstd = 7.7\nps = norm(mean, std).pdf(qs)\n~~~\n\n確率密度は確率ではありませんが、Pmf に入れて正規化すると、正規分布の離散近似になります。\n\n~~~python\nfrom empiricaldist import Pmf\nprior = Pmf(ps, qs)\nprior.normalize()\n~~~\n\nその形は次のとおりです。\n\nこの分布は、A のほうが高いというデータを考慮する前に、A と B の身長について私たちが信じていることを表します。"
+  },
+  {
+    "id": "TB2-CH11-S03",
+    "sourceHash": "1c1af77e7eb156613bf836a81744f203e5d21ab71409f9828b4fe2a28d7409cd",
+    "jaMarkdown": "## 同時分布\n\n次の手順は、あらゆる身長の組の確率を表す、同時分布と呼ばれる分布を作ることです。同時分布の要素は次のものです。\n\n$$\nP(A_x\\text{ and }B_y)\n$$\n\nこれは、すべての x と y について、A の身長が x cm であり、かつ B の身長が y cm である確率です。\n\nこの時点で A と B についてわかっているのは、アメリカに住む男性ということだけなので、身長は独立です。つまり、A の身長を知っても、B の身長について追加の情報は得られません。\n\nその場合、同時確率は次のように計算できます。\n\n$$\nP(A_x\\text{ and }B_y)=P(A_x)P(B_y)\n$$\n\n各同時確率は、x の分布の1要素と、y の分布の1要素の積です。\n\nしたがって、A と B の身長の分布を表す Pmf オブジェクトがあれば、それぞれの Pmf の確率の外積を計算して同時分布を求められます。\n\n次の関数は2つの Pmf オブジェクトを受け取り、同時分布を表す DataFrame を返します。\n\n~~~python\ndef make_joint(pmf1, pmf2):\n    \"\"\"Compute the outer product of two Pmfs.\"\"\"\n    X, Y = np.meshgrid(pmf1, pmf2)\n    return pd.DataFrame(X * Y, columns=pmf1.qs, index=pmf2.qs)\n~~~\n\n結果の列名は pmf1 の数量で、行ラベルは pmf2 の数量です。\n\nこの例では A と B の事前分布は同じなので、同時事前分布は次のように計算できます。\n\n~~~python\njoint = make_joint(prior, prior)\njoint.shape\n~~~\n\n~~~text\n(96, 96)\n~~~\n\n結果は、A の身長の候補を列、B の身長を行、同時確率を要素とする DataFrame です。\n\n事前分布が正規化されていれば、同時事前分布も正規化されています。\n\n~~~python\njoint.to_numpy().sum()\n~~~\n\n~~~text\n1.0\n~~~\n\nすべての要素を合計するため、sum を呼ぶ前に DataFrame を NumPy 配列に変換します。そうしないと、DataFrame.sum は列ごとの合計を計算し、Series を返します。"
+  },
+  {
+    "id": "TB2-CH11-S04",
+    "sourceHash": "03e6ac5583a5000031d11f736c5110ca12e3c0880af37850e4f042cea66a1f95",
+    "jaMarkdown": "## 同時分布の可視化\n\n次の関数は、pcolormesh で同時分布をプロットします。\n\n~~~python\nimport matplotlib.pyplot as plt\n\ndef plot_joint(joint, cmap='Blues'):\n    \"\"\"Plot a joint distribution with a color mesh.\"\"\"\n    vmax = joint.to_numpy().max() * 1.1\n    plt.pcolormesh(joint.columns, joint.index, joint,\n                   cmap=cmap,\n                   vmax=vmax,\n                   shading='nearest')\n    plt.colorbar()\n    decorate(xlabel='A height in cm',\n             ylabel='B height in cm')\n~~~\n\n同時事前分布は次のようになります。\n\n予想どおり、確率は平均の近くで最も高く、色が最も濃くなり、平均から遠ざかるほど低くなります。\n\n同時分布を可視化するもう1つの方法は、等高線プロットです。\n\n~~~python\ndef plot_contour(joint):\n    \"\"\"Plot a joint distribution with a contour.\"\"\"\n    plt.contour(joint.columns, joint.index, joint,\n                linewidths=2)\n    decorate(xlabel='A height in cm',\n             ylabel='B height in cm')\n~~~\n\n各線は、確率が等しい水準を表します。"
+  },
+  {
+    "id": "TB2-CH11-S05",
+    "sourceHash": "4065112bc657809958af22bf75f73e242da81e08950f54293be07b30d483d4cb",
+    "jaMarkdown": "## 尤度\n\n同時事前分布ができたので、A のほうが B より高いというデータで更新できます。\n\n同時分布の各要素は、A と B の身長についての仮説を表します。あらゆる数量の組の尤度を計算するため、事前分布から列名と行ラベルを次のように取り出せます。\n\n~~~python\nx = joint.columns\ny = joint.index\n~~~\n\nそれらを使ってメッシュグリッドを計算します。\n\n~~~python\nX, Y = np.meshgrid(x, y)\n~~~\n\nX は x の数量のコピー、つまり A の身長の候補を含みます。Y は y の数量のコピー、つまり B の身長の候補を含みます。X と Y を比較すると、結果はブール配列になります。\n\n~~~python\nA_taller = (X > Y)\nA_taller.dtype\n~~~\n\n~~~text\ndtype('bool')\n~~~\n\n尤度を計算するため、np.where を使い、A_taller が True の位置に1、それ以外に0を置いた配列を作ります。\n\n~~~python\na = np.where(A_taller, 1, 0)\n~~~\n\nこの尤度配列を可視化するため、x の値を列名、y の値を行ラベルとする DataFrame に入れます。\n\n~~~python\nlikelihood = pd.DataFrame(a, index=x, columns=y)\n~~~\n\nその形は次のとおりです。\n\nデータの尤度は X>Y の位置で1、それ以外で0です。"
+  },
+  {
+    "id": "TB2-CH11-S06",
+    "sourceHash": "0b2d1147d45daec5d4f8a3fbac933063c43a035597c5f05360edf12b467ee5db",
+    "jaMarkdown": "## 更新\n\n事前分布と尤度が得られ、更新の準備ができました。いつものように、正規化前の事後分布は、事前分布と尤度の積です。\n\n~~~python\nposterior = joint * likelihood\n~~~\n\n次の関数で事後分布を正規化します。\n\n~~~python\ndef normalize(joint):\n    \"\"\"Normalize a joint distribution.\"\"\"\n    prob_data = joint.to_numpy().sum()\n    joint /= prob_data\n    return prob_data\n\nnormalize(posterior)\n~~~\n\nその形は次のとおりです。\n\nB のほうが A より高い組はすべて除かれました。残りの事後分布は、再正規化されたことを除けば、事前分布と同じ形です。"
+  },
+  {
+    "id": "TB2-CH11-S07",
+    "sourceHash": "ed8ae66b25be2a7396f8a3d0b029e0ddb17e305536525d574a26b40ddd763ed1",
+    "jaMarkdown": "## 周辺分布\n\n同時事後分布は、事前分布と A のほうが高いという情報が与えられたときの、A と B の身長についての信念を表します。\n\nこの同時分布から、A と B それぞれの事後分布を計算できます。方法を見るため、より簡単な問題から始めましょう。\n\nA の身長が180 cmである確率を知りたいとします。同時分布から x=180 の列を選べます。\n\n~~~python\ncolumn = posterior[180]\ncolumn.head()\n~~~\n\n~~~text\n154.0    0.000010\n154.5    0.000013\n155.0    0.000015\n155.5    0.000019\n156.0    0.000022\nName: 180.0, dtype: float64\n~~~\n\nこの列には x=180 のすべての場合の事後確率が含まれます。合計すると、A の身長が180 cmである全確率が得られます。\n\n~~~python\ncolumn.sum()\n~~~\n\n~~~text\n0.03017221271570807\n~~~\n\n約3%です。\n\nA の身長の事後分布を得るには、次のように、すべての列をそれぞれ合計します。\n\n~~~python\ncolumn_sums = posterior.sum(axis=0)\ncolumn_sums.head()\n~~~\n\n~~~text\n154.0    0.000000e+00\n154.5    1.012260e-07\n155.0    2.736152e-07\n155.5    5.532519e-07\n156.0    9.915650e-07\ndtype: float64\n~~~\n\n引数 axis=0 は、列を合計したいという意味です。\n\n結果は、A のあらゆる身長の候補とその確率を含む Series です。言い換えると、A の身長の分布です。\n\n次のように Pmf に入れられます。\n\n~~~python\nmarginal_A = Pmf(column_sums)\n~~~\n\n同時分布から単一の変数の分布を取り出した結果を、周辺分布と呼びます。この名前は、中央に同時分布を、周辺に周辺分布を描く、一般的な可視化に由来します。\n\nA の周辺分布は次のようになります。\n\n同様に、各行を合計して結果を Pmf に入れれば、B の身長の事後分布を得られます。\n\n~~~python\nrow_sums = posterior.sum(axis=1)\nmarginal_B = Pmf(row_sums)\n~~~\n\nその形は次のとおりです。\n\nこの節のコードを関数にまとめましょう。\n\n~~~python\ndef marginal(joint, axis):\n    \"\"\"Compute a marginal distribution.\"\"\"\n    return Pmf(joint.sum(axis=axis))\n~~~\n\nmarginal は、同時分布と軸番号をパラメータとして受け取ります。\n\n- axis=0 なら、第1変数、すなわち x 軸の変数の周辺分布を返します。\n- axis=1 なら、第2変数、すなわち y 軸の変数の周辺分布を返します。\n\nしたがって、両方の周辺分布を次のように計算できます。\n\n~~~python\nmarginal_A = marginal(posterior, axis=0)\nmarginal_B = marginal(posterior, axis=1)\n~~~\n\n事前分布と並べると、次のようになります。\n\n予想どおり、A の事後分布は右に、B の事後分布は左に移動しています。\n\n事後平均を計算して結果を要約できます。\n\n~~~python\nprior.mean()\n~~~\n\n~~~text\n177.99516026921506\n~~~\n\n~~~python\nprint(marginal_A.mean(), marginal_B.mean())\n~~~\n\n~~~text\n182.3872812342168 173.6028600023339\n~~~\n\nA のほうが B より高いという観測に基づき、A は平均より少し高く、B は少し低いと考えるようになります。\n\n事後分布が事前分布より少し狭いことにも注目してください。標準偏差を計算すると、これを数値化できます。\n\n~~~python\nprior.std()\n~~~\n\n~~~text\n7.624924796641578\n~~~\n\n~~~python\nprint(marginal_A.std(), marginal_B.std())\n~~~\n\n~~~text\n6.270461177645469 6.280513548175111\n~~~\n\n事後分布の標準偏差は少し小さく、2人を比較した後では、A と B の身長についての確かさが増したことを意味します。"
+  },
+  {
+    "id": "TB2-CH11-S08",
+    "sourceHash": "545fb4544e4136f5ed4225ebd8f14b3cf5cf781188c33a1f4a92cdec2f1ac795",
+    "jaMarkdown": "## 条件付き事後分布\n\n今度は A の身長を測り、170 cmとわかったとします。これは B について何を教えてくれるでしょうか。\n\n同時分布の各列は、A の身長の候補に対応します。170 cmに対応する列は、次のように選べます。\n\n~~~python\ncolumn_170 = posterior[170]\n~~~\n\n結果は、B の身長の候補とその相対尤度を表す Series です。これらの尤度は正規化されていませんが、次のように正規化できます。\n\n~~~python\ncond_B = Pmf(column_170)\ncond_B.normalize()\n~~~\n\n~~~text\n0.004358061205454471\n~~~\n\nPmf の作成時には、デフォルトでデータをコピーするので、column_170 や posterior に影響させずに cond_B を正規化できます。結果は、A の身長が170 cmであるという条件の下での、B の身長の条件付き分布です。\n\nその形は次のとおりです。\n\n条件付き事後分布は170 cmで切れています。B は A より低く、A は170 cmと確定しているからです。"
+  },
+  {
+    "id": "TB2-CH11-S09",
+    "sourceHash": "2929075bfaf9c9633d8daacef9a86ee6a18fa85514c9e6af17255cd6d2eaf512",
+    "jaMarkdown": "## 依存と独立\n\n同時事前分布を作ったとき、A と B の身長は独立だと述べました。これは、一方を知っても他方についての情報を得られないという意味です。言い換えると、条件付き確率 P(Ax|By) は無条件確率 P(Ax) と同じです。\n\nしかし、事後分布では A と B は独立ではありません。A のほうが B より高いとわかっており、A の身長もわかれば、B についての情報が得られます。\n\n先ほど計算した条件付き分布は、この依存関係を示しています。"
+  },
+  {
+    "id": "TB2-CH11-S10",
+    "sourceHash": "fdda7abc3fa9e411f0b7f792524bb7a5aebb14ace7a67726d2bc046db88294ef",
+    "jaMarkdown": "## まとめ\n\nこの章は外積などの「外側の」演算から始め、それを使って同時分布を構築しました。\n\n一般に、2つの周辺分布だけから同時分布を構築することはできません。しかし、分布が独立という特別な場合には可能です。\n\nベイズ更新の手続きを拡張して同時分布に適用しました。そして同時事後分布から、周辺事後分布と条件付き事後分布を取り出しました。\n\n練習問題では、少し難しいものの、はるかに役に立つ問題に、同じ手続きを適用する機会があります。対局の結果に基づいてチェスのプレイヤーのレーティングを更新する問題です。"
+  },
+  {
+    "id": "TB2-CH11-S11",
+    "sourceHash": "71962f25fa716eba1f4dd75f3ad5084f1ce3c00b7a1d7f507cdd181ced8e1c86",
+    "jaMarkdown": "## 練習問題\n\n### 練習問題11-1\n\n前の例の結果に基づき、B の身長が180 cmであるという条件の下で、A の事後条件付き分布を計算してください。\n\nヒント：loc を使って DataFrame から行を選択してください。\n\n### 練習問題11-2\n\nA のほうが B より高いと確定していますが、B の身長はわからないとします。今度は女性 C をランダムに選び、A より少なくとも15 cm低いとわかりました。A と C の身長の事後分布を計算してください。\n\nアメリカの女性の平均身長は163 cm、標準偏差は7.3 cmです。\n\n### 練習問題11-3\n\nElo レーティング・システムは、チェスなどのゲームのプレイヤーの技能水準を数値化する方法です。\n\nこれは、プレイヤーのレーティングと対局の結果との関係を表すモデルに基づきます。具体的には、プレイヤー A のレーティングを RA、プレイヤー B のレーティングを RB とすると、A が B に勝つ確率は次のロジスティック関数で与えられます。\n\n$$\nP(A\\text{ beats }B)=\\frac{1}{1+10^{(R_B-R_A)/400}}\n$$\n\nパラメータ10と400は、レーティングの範囲を決める、任意に選んだ値です。チェスでは、その範囲は100から2,800です。\n\n勝つ確率は、レーティングの差だけに依存することに注目してください。例えば RA が RB を100点上回るなら、A が勝つ確率は次のとおりです。\n\n~~~python\n1 / (1 + 10**(-100/400))\n~~~\n\n~~~text\n0.6400649998028851\n~~~\n\nA の現在のレーティングが1,600ですが、正確かどうか確信がないとします。真のレーティングを、平均1,600、標準偏差100の正規分布で記述して、不確実性を表せます。\n\nまた B の現在のレーティングは1,800で、不確実性の程度は同じだとします。\n\nそこで A と B が対局し、A が勝ちました。レーティングをどう更新すべきでしょうか。"
+  }
+]

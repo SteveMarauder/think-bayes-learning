@@ -2,6 +2,13 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
+## Version 3: source home, connected route and Japanese edition
+
+- A dedicated home page credits Allen B. Downey and the 2021 second edition, links to the author’s online book, code/notebooks and CC BY-NC-SA 4.0, and distinguishes the source from this site’s adaptations.
+- The learning map uses 20 connected chapter nodes and 19 ordered edges. Completed chapters have a check, the last-opened chapter has a double ring, and the next unread chapter has a pennant. States can coexist; reading completion is separate from quiz performance. Desktop uses a serpentine route; small screens use a vertical route with the same chapter order. Locate controls support keyboard focus.
+- Japanese includes all 195 source-section translation drafts, 195 concept guides, 177 checks and 36 glossary entries. Chinese, English and Japanese retain the same lesson/quiz IDs and browser progress. Japanese translations offer the original English text in a disclosure and the original PDF viewer.
+- Japanese chapter translation files retain the exact existing English source hashes. Locale source files live under `locales/ja/chapters/`; `node scripts/build-japanese.mjs` validates coverage, code/output/math and writes the deterministic Japanese locale pack and manifest.
+
 ## Version 2.2 reading experience
 
 - A five-stage visual learning route groups all 20 chapters once, in book order. Each stage has a goal, each chapter has a concrete destination, and the map distinguishes the earliest unread recommendation from the last opened section. Chapter links open the first unread section. Nothing is locked, and reading completion is separate from quiz performance.
