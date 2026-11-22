@@ -2,6 +2,12 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
+## Version 3.3: standalone welcome cover
+
+The root route is now a full-screen welcome cover with a generated scientific sculpture, animated observation particles, subtle pointer parallax, staged typography and a prominent Enter learning link to `#/map`. It uses the same light/dark and language preferences as the course, without showing course navigation before entry. The original learning/source home remains at `#/home`; original chapter, exercise, progress and source-anchor links remain usable. Clicking the course brand returns to the cover.
+
+The artwork is decorative, not a statistical plot or an original book figure. Built-in image generation provenance and the full prompt are recorded in `assets/welcome/generation.json`. WebP and JPEG copies are encoded from the unmodified generated image. Pause controls stop motion, reduced-motion preferences disable it, and observers/listeners/frame callbacks are released when leaving the cover. Existing browser storage and export formats remain compatible.
+
 ## Version 3.2: a living probability homepage
 
 An animated, trilingual Bayesian coin demo introduces the course above the original author/source credits. A fixed 40-toss teaching sequence has 26 heads. Starting with Beta(1, 1), the plotted posterior is Beta(heads + 1, tails + 1); curves share the same density scale and the shaded equal-tail interval contains 90% posterior probability. This is independently authored teaching data, not a result from the book.

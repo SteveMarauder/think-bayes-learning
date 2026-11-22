@@ -1,5 +1,6 @@
 // Apply the saved preference before styles paint, including on slow connections.
 (() => {
+ document.documentElement.classList.toggle('is-welcome', ['', '#', '#/'].includes(location.hash));
  let theme;
  try { theme = JSON.parse(localStorage.getItem('bayes-notes:v1') || '{}')?.theme; } catch {}
  if (!['light', 'dark'].includes(theme)) theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
