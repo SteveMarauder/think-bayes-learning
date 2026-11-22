@@ -2,12 +2,12 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
-## Version 2 reading experience
+## Version 2.1 reading experience
 
 - Faithful full-section translation drafts for the main text, printed pages 1–304, across all 195 table-of-contents entries. This includes the author's prose, quotations, exercises, code and numeric output. Original figures stay in the PDF; equations use locally bundled KaTeX where typeset math is available.
 - The original PDF panel has an explicit **Close original** button. Closing persists across language changes and reloads. Pressing Esc closes an enlarged page first, then can collapse the original panel; the enlarged view also closes by its fixed Close button or backdrop.
 - Supplementary concept guides/examples are in a separate, collapsed disclosure, so they are clearly distinguished from faithful source translation.
-- Navy/cyan interface, subtle data grid, restrained highlights and readable typography.
+- Scientific book-inspired typography, fine chart lines and a restrained red accent. Header buttons switch between paper-white and charcoal-dark themes, remembering the choice in this browser. The first visit follows the operating-system preference; switching does not reset reading position, PDF state or selected quiz answers.
 - Translations load by chapter and retain a SHA-256 reference to the exact extracted source section. The source is the supplied printed PDF; historical author notebooks are consulted only to clarify equation and code formatting.
 
 The translation is a draft and is not an official or author-reviewed edition. The author's original claims, including printed errors and historical software versions, are retained in translation. Mathematical corrections and version notes are shown separately.
