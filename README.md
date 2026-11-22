@@ -2,7 +2,10 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
-## Version 2.1 reading experience
+## Version 2.2 reading experience
+
+- A five-stage visual learning route groups all 20 chapters once, in book order. Each stage has a goal, each chapter has a concrete destination, and the map distinguishes the earliest unread recommendation from the last opened section. Chapter links open the first unread section. Nothing is locked, and reading completion is separate from quiz performance.
+- Stage shortcuts support keyboard navigation; light/dark palettes and compact mobile controls remain available.
 
 - Faithful full-section translation drafts for the main text, printed pages 1–304, across all 195 table-of-contents entries. This includes the author's prose, quotations, exercises, code and numeric output. Original figures stay in the PDF; equations use locally bundled KaTeX where typeset math is available.
 - The original PDF panel has an explicit **Close original** button. Closing persists across language changes and reloads. Pressing Esc closes an enlarged page first, then can collapse the original panel; the enlarged view also closes by its fixed Close button or backdrop.

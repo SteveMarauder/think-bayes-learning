@@ -1,13 +1,13 @@
 {
   "name": "think-bayes-learning",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
   "description": "Bilingual Think Bayes concept guides, original book pages and simple practice.",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node scripts/verify.mjs",
-    "check": "node --check app.js && node --check theme-init.js && node scripts/verify.mjs"
+    "test": "node scripts/verify.mjs && node scripts/verify-learning-path.mjs",
+    "check": "node --check app.js && node --check theme-init.js && node --check learning-path.js && npm run test"
   },
   "engines": {
     "node": ">=22"
