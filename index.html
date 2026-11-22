@@ -6,16 +6,16 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="依 Think Bayes 第二版逐節學習：繁體中文與英文導讀、原書圖表對照，以及有解釋的概念練習。">
   <title>貝氏慢學 · Bayes Notes</title>
-  <script src="./theme-init.js?v=5"></script>
+  <script src="./theme-init.js?v=6"></script>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./vendor/katex/katex.min.css">
-  <link rel="stylesheet" href="./styles.css?v=5">
-  <link rel="stylesheet" href="./tech.css?v=5">
+  <link rel="stylesheet" href="./styles.css?v=6">
+  <link rel="stylesheet" href="./tech.css?v=6">
   <script src="./vendor/marked.umd.js"></script>
   <script src="./vendor/purify.min.js"></script>
   <script src="./vendor/katex/katex.min.js"></script>
   <script src="./vendor/katex/auto-render.min.js"></script>
-  <script type="module" src="./app.js?v=5"></script>
+  <script type="module" src="./app.js?v=6"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容 / Skip to content</a>
@@ -26,6 +26,7 @@
     <footer id="footer" class="footer"></footer>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="concept-dialog" class="concept-dialog" aria-label="概念圖解 / Concept illustration"></dialog>
   <dialog id="about-dialog" class="about-dialog"></dialog>
   <dialog id="image-dialog" class="image-dialog" aria-label="原書放大閱讀 / Enlarged source page"><div class="image-dialog-header"><span>THINK BAYES · SOURCE VIEW</span><button id="close-image" class="source-close-button" aria-label="關閉原文 / Close original">✕ 關閉 / Close</button></div><img id="large-image" alt=""><p id="image-caption"></p></dialog>
   <noscript>本網站的語言切換與測驗需要 JavaScript。你仍可閱讀 <a href="./assets/think-bayes-2e.pdf">Think Bayes 原書</a>。</noscript>

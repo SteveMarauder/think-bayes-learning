@@ -1,0 +1,35 @@
+{
+  "tool": "image_gen.imagegen (built-in image generation)",
+  "purpose": "Site-authored supplementary educational illustrations, separate from original Think Bayes figures. Text labels are rendered by the website in Chinese, English or Japanese.",
+  "authorCredit": "Based on concepts taught in Think Bayes, second edition, by Allen B. Downey. Not an original book illustration or an official endorsed adaptation.",
+  "finalPromptSet": [
+    {
+      "asset": "cookie-bowls.png",
+      "prompt": "Use case: scientific-educational. Asset type: website learning illustration. Primary request: Create a refined scientific textbook pen-and-ink illustration for a Bayesian statistics learning website. Wide horizontal composition on pure white background. Exactly TWO equally sized shallow ceramic bowls, viewed from directly above, spaced generously side by side. Exactly FOUR distinct cookies in each bowl in a two-by-two grid with no overlap. LEFT bowl: EXACTLY THREE pale golden vanilla cookies and EXACTLY ONE fully dark brown chocolate cookie. RIGHT bowl: EXACTLY TWO pale golden vanilla cookies and EXACTLY TWO fully dark brown chocolate cookies. Eight cookies total. Cookies have delicate ink outlines and crosshatching, vanilla remains clearly pale and chocolate clearly dark brown. Thin charcoal ceramic outlines, tiny muted burgundy rim accents. Crisp natural-history engraving quality, calm and sophisticated, not childish or photorealistic. No text, labels, letters, numbers, arrows, equation, logo, hand, crumbs, extra objects, pattern or border. No cookies outside the bowls. Counts and flavor distinction are essential."
+    },
+    {
+      "asset": "monty-doors.png",
+      "prompt": "Use case: scientific-educational. Create a high-end scientific textbook editorial pen-and-ink illustration for a Bayesian statistics learning website. Wide horizontal composition on pure white background, three equally sized distinct stage doorways in a single straight row, minimal ground rule. Exactly THREE doors: LEFT door closed, outlined with a restrained burgundy frame to indicate the learner's initial selection; CENTER door fully open, revealing exactly ONE clearly recognizable small goat standing within the doorway, depicted as fine natural-history ink engraving with light gray hatching; RIGHT door closed with charcoal frame. Only center doorway is open, left and right entirely opaque and closed. Goat visible only in center doorway, no animals outside it. Clean geometry and delicately hatched scientific illustration, white panels, charcoal linework, one burgundy accent, high readability. Reserve a generous clean strip below the doors for webpage labels that will be added separately. No text, numerals, letters, symbols, selection checkmarks, car, arrows, captions, logo, people or decorative objects. Make the three distinct door states unmistakable. Not an infographic poster and not a screenshot."
+    },
+    {
+      "asset": "tagged-fish.png",
+      "prompt": "Use case: scientific-educational. Create an elegant natural-science textbook pen-and-ink plate for a Bayesian statistics lesson about mark-and-recapture population estimation. Wide horizontal white background. Exactly two large realistic but approachable freshwater fish, anatomically plausible, both viewed in side profile facing right, left specimen and right specimen separated with ample white space. Fine engraved black ink outlines, delicate crosshatching to describe scales, fins and gills; restrained desaturated gray-green wash. LEFT fish has one small conspicuous burgundy scientific identification tag; RIGHT fish is unmarked. These are two representative individuals, not a count of the sampling data. Beautiful precise scientific plate, calm, refined, approachable, not cartoonish, not photorealistic. No text, no labels, no numbers, no arrows, no logo, no equation, no extra fish, no fishing hook, no net, no decorative border. Keep the burgundy tag clearly visible on the left fish and absent on the right fish."
+    }
+  ],
+  "checks": [
+    "Cookie tokens visually checked: left 3 vanilla + 1 chocolate; right 2 vanilla + 2 chocolate. Each token represents 10 cookies in the original problem.",
+    "Monty scene visually checked: left and right closed, center open with one goat; informed-host assumptions stated in the website.",
+    "Fish visually checked: one marked and one unmarked individual; sample sizes are stated separately in text."
+  ],
+  "numericDiagrams": {
+    "implementation": "concept-visuals.js and visual-math.js",
+    "models": [
+      "Cookie Bayes weights and normalization",
+      "Beta(1,1) updated by 7 heads and 3 tails to Beta(8,4)",
+      "Equal-tailed 90% Beta(8,4) credible interval",
+      "Normalized joint 3x3 probability table and marginal sums",
+      "Fixed-seed Metropolis simulation targeting N(0,1), 200 warmup steps plus 1000 retained draws"
+    ]
+  },
+  "promptRecord": "Normalized prompt specifications for recreating the selected final image set, preserving the checked visual constraints."
+}

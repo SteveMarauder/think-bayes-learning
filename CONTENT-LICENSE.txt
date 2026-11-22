@@ -35,3 +35,15 @@ licensed under Apache License 2.0. See vendor/PDFJS-LICENSE.txt.
 Marked 18.2.1 and KaTeX 0.19.1 retain their MIT license notices in vendor/.
 DOMPurify 3.4.18 retains its Apache-2.0 / MPL-2.0 dual-license notices in
 vendor/DOMPURIFY-LICENSE.txt and vendor/DOMPURIFY-LICENSE-MPL.txt.
+
+ADDITIONAL VISUAL SUPPLEMENTS (v3.1)
+
+The cookie-bowl, Monty Hall door and fish illustrations in assets/visuals/
+were newly generated for this companion with the built-in image-generation
+tool, then visually checked. They are not original Think Bayes figures.
+Their captions, assumptions and five calculated HTML/SVG teaching diagrams
+are site-authored supplements. The original PDF/figure credits remain separate.
+Generation provenance and normalized reproduction prompts are recorded in
+assets/visuals/generation-prompts.json. These supplementary educational materials
+are offered with the site's adapted content under CC BY-NC-SA 4.0; application
+code remains separately licensed under MIT. No endorsement is implied.

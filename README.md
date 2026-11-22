@@ -2,6 +2,14 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
+## Version 3.1: visual learning supplements
+
+Eight trilingual visual guides appear before the source translation in relevant sections and in a dedicated Visual guides collection. Three scientific-book-style illustrations (cookie bowls, Monty Hall doors, and marked/unmarked fish) were generated with the built-in image tool and visually checked. Five other guides use HTML/SVG with explicit, deterministic models: cookie Bayesian updating, Beta prior/posterior, a 90% credible interval, a normalized joint table, and a fixed-seed Metropolis simulation.
+
+All visuals are labeled as site supplements, separate from original book figures. Modal enlargement has a sticky Close button and supports Escape/backdrop closing; it does not collapse an open source PDF. Chinese, English and Japanese captions state the assumptions. Dense charts can scroll sideways on narrow screens, with an onscreen hint.
+
+Image provenance and normalized reproduction prompts: `assets/visuals/generation-prompts.json`. `node scripts/verify-visuals.mjs` checks lesson mappings, multilingual fields, assets, normalization, interval mass and the stated sampling example.
+
 ## Version 3: source home, connected route and Japanese edition
 
 - A dedicated home page credits Allen B. Downey and the 2021 second edition, links to the author’s online book, code/notebooks and CC BY-NC-SA 4.0, and distinguishes the source from this site’s adaptations.
