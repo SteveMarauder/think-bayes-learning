@@ -91,7 +91,12 @@ export function mountProbabilityHero(root,mode='zh'){
  function onVisibility(){lastStep=0;if(!document.hidden)wake();}
  function onReduced(){if(reduced.matches){playing=false;paint(curves[n]);start=0;updateLabels();}wake();}
  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;lastStep=0;if(visible)wake();},{threshold:.05});
+ const resizeObserver=new ResizeObserver(()=>{
+  const width=svg.getBoundingClientRect().width;
+  if(width>0)svg.querySelectorAll('.evidence-grid text').forEach(label=>label.style.fontSize=`${Math.max(14,12*820/width)}px`);
+ });
+ resizeObserver.observe(svg);
  observer.observe(host);play.addEventListener('click',onPlay);slider.addEventListener('input',onInput);document.addEventListener('visibilitychange',onVisibility);reduced.addEventListener('change',onReduced);
  paint(curves[0]);updateLabels();wake();
- return ()=>{disposed=true;cancelAnimationFrame(raf);observer.disconnect();play.removeEventListener('click',onPlay);slider.removeEventListener('input',onInput);document.removeEventListener('visibilitychange',onVisibility);reduced.removeEventListener('change',onReduced);};
+ return ()=>{disposed=true;cancelAnimationFrame(raf);observer.disconnect();resizeObserver.disconnect();play.removeEventListener('click',onPlay);slider.removeEventListener('input',onInput);document.removeEventListener('visibilitychange',onVisibility);reduced.removeEventListener('change',onReduced);};
 }
