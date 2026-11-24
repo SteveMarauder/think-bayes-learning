@@ -1,0 +1,74 @@
+UPDATING BELIEFS - THIRD-PARTY NOTICES
+Technical inventory reviewed 2026-11-24. See rights-manifest.json for hashes.
+
+BOOK AND DERIVED EDUCATIONAL CONTENT
+Allen B. Downey, Think Bayes: Bayesian Statistics in Python, Second Edition.
+Copyright © 2021 Allen B. Downey. All rights reserved. ISBN 9781492089469.
+Source: https://allendowney.github.io/ThinkBayes2/
+License: CC BY-NC-SA 4.0, as stated by the author and source copyright page.
+Full terms: CC-BY-NC-SA-4.0.txt. Changes and scope: CONTENT-LICENSE.txt.
+This is an independent, noncommercial companion, not an official translation.
+The original PDF's disclaimers, publisher credits and trademark notices remain.
+
+EXTERNAL CONTRIBUTORS, QUOTATIONS AND DATA
+The source preface credits David MacKay (Information Theory, Inference, and
+Learning Algorithms), Cameron Davidson-Pilon and Rasmus Bååth, stating some
+examples/exercises were used with permission. That statement is the source
+author's, not evidence that this project has reviewed the underlying agreements.
+Their credits are retained; no independent blanket license is claimed here.
+Other source quotations and data references retain their own rights. Embedded
+reference links are indexed by page in rights-manifest.json and at #/licenses.
+No separate raw datasets, external web photographs, publisher cover/logo image
+assets or remote web fonts are distributed/loaded separately by this site.
+The unmodified source PDF itself retains the publisher's original presentation.
+
+PDF.js 6.5.438
+Copyright Mozilla Foundation and contributors (bundled headers: Copyright 2024
+Mozilla Foundation). Apache License 2.0. vendor/pdf.mjs; vendor/pdf.worker.mjs.
+Source: https://github.com/mozilla/pdf.js
+Full license: vendor/PDFJS-LICENSE.txt. Bundled headers are retained.
+
+Marked 18.2.1
+Copyright (c) 2018-2026 MarkedJS; Copyright (c) 2011-2018 Christopher Jeffrey.
+MIT. Source: https://github.com/markedjs/marked
+Full license and retained John Gruber/Markdown notice: vendor/MARKED-LICENSE.txt.
+
+DOMPurify 3.4.18
+Copyright Cure53 and other contributors. Apache-2.0 OR MPL-2.0.
+Source: https://github.com/cure53/DOMPurify
+Full licenses: vendor/DOMPURIFY-LICENSE.txt; vendor/DOMPURIFY-LICENSE-MPL.txt.
+Embedded Babel helpers/regenerator: MIT; Copyright (c) 2014-present Sebastian
+McKenzie and other contributors; Copyright (c) 2014-present Facebook, Inc.
+(regenerator helpers). Full notice: vendor/BABEL-HELPERS-LICENSE.txt.
+Source: https://github.com/babel/babel/tree/main/packages/babel-helpers
+The upstream build and its existing notices have not been altered.
+
+KaTeX 0.19.1 - PROGRAM
+Copyright (c) 2013-2020 Khan Academy and other contributors. MIT.
+Source: https://github.com/KaTeX/KaTeX
+Full license: vendor/KATEX-LICENSE.txt. Applies to the program, not font files.
+
+KaTeX - FONT FILES
+Copyright (c) 2009-2010 Design Science, Inc. (www.mathjax.org).
+Copyright (c) 2014-2018 Khan Academy (www.khanacademy.org).
+SIL Open Font License 1.1, as stated in the bundled font binaries' name tables.
+Full font-specific notices, Reserved Font Names and OFL text:
+vendor/KATEX-FONTS-OFL.txt. Fonts are bundled unmodified in vendor/katex/fonts/.
+OFL source: https://openfontlicense.org/documents/OFL.txt
+Interface font-family declarations use system fonts; they do not load web fonts.
+
+SITE-CREATED SUPPLEMENTS
+The original SVG mark, interface code and code-driven animation use the code's
+MIT license. Adapted learning material and teaching diagrams use CC BY-NC-SA 4.0.
+Three learning illustrations and the welcome sculpture were newly AI-generated,
+not copied book illustrations. Generation records: assets/visuals/generation-
+prompts.json; assets/welcome/generation.json. Any license for AI output extends
+only to licensable rights actually held; no exclusive AI-only copyright claim.
+
+REUSE AND RIGHTS CONCERNS
+The project's MIT license does not replace any content, font or library license.
+Noncommercial purpose is not a copyright exemption. No additional legal or DRM
+restriction is imposed on reuse that the applicable license already permits.
+Review limits and unresolved underlying permission questions: RIGHTS-AUDIT.md.
+Report a source, attribution or rights concern, identifying the affected page:
+https://github.com/SteveMarauder/think-bayes-learning/issues

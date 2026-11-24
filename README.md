@@ -2,6 +2,21 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
+## Version 3.4.1: purpose, attribution and third-party inventory
+
+This is a **free, noncommercial personal learning project**, created for educational exchange and project sharing. There is currently no advertising, paid content, fundraising or commercial lead generation. This statement describes the project, not an exemption from copyright or an extra license from third parties. It is an independent, unofficial companion and translation draft, without author or publisher endorsement.
+
+`#/licenses` provides Traditional Chinese, English and Japanese purpose statements, the source edition/copyright/changes, reuse terms, a complete media inventory, bundled software and font license links, the source book's embedded external references, and review limits. The welcome page, source home, course footer and each lesson link to these details; lesson references are grouped by the covering source pages and may include neighboring sections.
+
+Book content and adapted educational materials use **CC BY-NC-SA 4.0**, subject to original notices and separate third-party rights. Original application code uses **MIT**. KaTeX program code uses MIT; its font files declare **SIL OFL 1.1**, with full copyright/reserved-font-name notices in `vendor/KATEX-FONTS-OFL.txt`. The embedded Babel/regenerator helpers' MIT notice is also included. Generated illustrations and welcome artwork are labeled as supplements and licensed only to the extent this project holds licensable rights.
+
+- `CONTENT-LICENSE.txt`: purpose, source, changes and educational-content license scope.
+- `THIRD-PARTY-NOTICES.txt`: software/fonts and source contributor credits.
+- `rights-manifest.json`: file hashes, license documents and original PDF reference links.
+- `RIGHTS-AUDIT.md`: technical review, corrections and unresolved underlying permissions.
+
+The source preface credits David MacKay, Cameron Davidson-Pilon and Rasmus Bååth and says some problems/examples were used with permission. This project has not obtained/reviewed those agreements and does not claim independent clearance of all underlying quotations, datasets or third-party works. Future monetization must be reassessed before introduction. Report specific source, credit or rights concerns in [project Issues](https://github.com/SteveMarauder/think-bayes-learning/issues).
+
 ## Version 3.4: interleaved original and Chinese reading
 
 The Chinese-English mode now places each source passage immediately above its corresponding Traditional Chinese translation. Source boundaries are recovered from the supplied PDF's text layout, while stored source/translation ranges preserve the existing text and Markdown exactly. Identical code/output and language-independent equations can be shown once as shared content. The PDF remains available as an optional panel below the reading flow.

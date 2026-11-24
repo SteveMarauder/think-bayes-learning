@@ -1,0 +1,1355 @@
+{
+  "auditDate": "2026-11-24",
+  "scope": "Tracked media, bundled software/fonts, source PDF notices and embedded external-reference links; not independent clearance of all underlying third-party rights.",
+  "sourceBook": {
+    "title": "Think Bayes: Bayesian Statistics in Python, Second Edition",
+    "author": "Allen B. Downey",
+    "copyright": "Copyright © 2021 Allen B. Downey. All rights reserved.",
+    "license": "CC-BY-NC-SA-4.0",
+    "url": "https://allendowney.github.io/ThinkBayes2/",
+    "copyrightPdfPage": 4,
+    "acknowledgmentsPdfPage": 15
+  },
+  "assets": [
+    {
+      "path": "assets/favicon.svg",
+      "kind": "site-code-art",
+      "sha256": "bf5734099758d0156d759f7199012b8622173166dd83e36dc9a3ad7ae0a8c4e3",
+      "license": "MIT",
+      "qualification": ""
+    },
+    {
+      "path": "assets/prior-comparison.png",
+      "kind": "book-figure-crop",
+      "sha256": "20ab67b672ea4d921963709834f8492fc64babdb2a7040194d2758f83059eab4",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Subject to original notices and separately credited third-party rights."
+    },
+    {
+      "path": "assets/think-bayes-2e.pdf",
+      "kind": "source-book",
+      "sha256": "4d59b8cccc7023b88e8bbffdf84daafcbeebddfda063402cc308d43f8e40c7cf",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Subject to original notices and separately credited third-party rights."
+    },
+    {
+      "path": "assets/visuals/cookie-bowls.png",
+      "kind": "ai-generated-supplement",
+      "sha256": "fb31b4f45c17c449b2da10d3b3a817d6ec7ad20a0954c0f56b1d5ffc21f22dbd",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Offered to the extent the project holds licensable rights; no exclusive copyright claim over AI-only output."
+    },
+    {
+      "path": "assets/visuals/generation-prompts.json",
+      "kind": "generation-record",
+      "sha256": "466950c8803ca3b073fc494e615cd96a561a3eed33ff10f1919b3be9ef9800b8",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": ""
+    },
+    {
+      "path": "assets/visuals/monty-doors.png",
+      "kind": "ai-generated-supplement",
+      "sha256": "27bdb63a9710b567419c87742d38403948ae4d262e44f3212eda31d0109abca7",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Offered to the extent the project holds licensable rights; no exclusive copyright claim over AI-only output."
+    },
+    {
+      "path": "assets/visuals/tagged-fish.png",
+      "kind": "ai-generated-supplement",
+      "sha256": "0d717965139f7c615858aec1822b342207ebd4eb21a942444a9c9240ef706956",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Offered to the extent the project holds licensable rights; no exclusive copyright claim over AI-only output."
+    },
+    {
+      "path": "assets/welcome/belief-sculpture.jpg",
+      "kind": "ai-generated-supplement",
+      "sha256": "934096bfb3488bd541799b5229b55b8307f0193fec6f32c4437f4b25e6c6ddb9",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Offered to the extent the project holds licensable rights; no exclusive copyright claim over AI-only output."
+    },
+    {
+      "path": "assets/welcome/belief-sculpture.webp",
+      "kind": "ai-generated-supplement",
+      "sha256": "f93690f8e0fc0d9d00811f7d0163bac93513c8fa757e701c024a18e095b3363d",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": "Offered to the extent the project holds licensable rights; no exclusive copyright claim over AI-only output."
+    },
+    {
+      "path": "assets/welcome/generation.json",
+      "kind": "generation-record",
+      "sha256": "4140e0e3db4d5d8425c7dd96db664c047fc2e17207b9e0445ad1bc2eca830da2",
+      "license": "CC-BY-NC-SA-4.0",
+      "qualification": ""
+    }
+  ],
+  "libraries": [
+    {
+      "id": "pdfjs",
+      "title": "PDF.js 6.5.438",
+      "license": "Apache-2.0",
+      "noticePaths": [
+        "vendor/PDFJS-LICENSE.txt"
+      ],
+      "source": "https://github.com/mozilla/pdf.js",
+      "files": [
+        {
+          "path": "vendor/pdf.mjs",
+          "sha256": "cbabeebf4df66f3fe736f2fa2792d332e019a878b0aa88d5e2be17d439079de4"
+        },
+        {
+          "path": "vendor/pdf.worker.mjs",
+          "sha256": "43710009ea26bfbcb615524946e46e3aaf8ad927514f5e465e8ff6d18044ffe9"
+        }
+      ]
+    },
+    {
+      "id": "marked",
+      "title": "Marked 18.2.1",
+      "license": "MIT; retained Markdown notice",
+      "noticePaths": [
+        "vendor/MARKED-LICENSE.txt"
+      ],
+      "source": "https://github.com/markedjs/marked",
+      "files": [
+        {
+          "path": "vendor/marked.umd.js",
+          "sha256": "bb95d4c15f1289f78486eaacebf3bb18688475ed58a040ef762ed49337090542"
+        }
+      ]
+    },
+    {
+      "id": "dompurify",
+      "title": "DOMPurify 3.4.18",
+      "license": "Apache-2.0 OR MPL-2.0",
+      "noticePaths": [
+        "vendor/DOMPURIFY-LICENSE.txt",
+        "vendor/DOMPURIFY-LICENSE-MPL.txt"
+      ],
+      "source": "https://github.com/cure53/DOMPurify",
+      "files": [
+        {
+          "path": "vendor/purify.min.js",
+          "sha256": "8053ee2a6a09f9d50f7fcd6fb7f07072f52c7f3fa9aa12147cab4feaf65ee970"
+        }
+      ]
+    },
+    {
+      "id": "babel-helpers",
+      "title": "Babel helpers / regenerator (embedded in DOMPurify)",
+      "license": "MIT",
+      "noticePaths": [
+        "vendor/BABEL-HELPERS-LICENSE.txt"
+      ],
+      "source": "https://github.com/babel/babel/tree/main/packages/babel-helpers",
+      "files": [
+        {
+          "path": "vendor/purify.min.js",
+          "sha256": "8053ee2a6a09f9d50f7fcd6fb7f07072f52c7f3fa9aa12147cab4feaf65ee970"
+        }
+      ]
+    },
+    {
+      "id": "katex",
+      "title": "KaTeX 0.19.1",
+      "license": "MIT",
+      "noticePaths": [
+        "vendor/KATEX-LICENSE.txt"
+      ],
+      "source": "https://github.com/KaTeX/KaTeX",
+      "files": [
+        {
+          "path": "vendor/katex/katex.min.js",
+          "sha256": "fa140498b8cfc8302cbe5e7cb1bdbc1f952bc38b3fa258ede09e73edbf9a74bc"
+        },
+        {
+          "path": "vendor/katex/auto-render.min.js",
+          "sha256": "e5372d199bcdae8b4de71d0f7ceba72a4ba12774a27c60a6f1f77d03b3228ee4"
+        },
+        {
+          "path": "vendor/katex/katex.min.css",
+          "sha256": "00e0b094171b07f58422075f469b4feac2b2f7bce1aeec943c08da4d697f4dcf"
+        }
+      ]
+    },
+    {
+      "id": "katex-fonts",
+      "title": "KaTeX fonts",
+      "license": "OFL-1.1",
+      "noticePaths": [
+        "vendor/KATEX-FONTS-OFL.txt"
+      ],
+      "source": "https://katex.org/",
+      "files": [
+        {
+          "path": "vendor/katex/fonts/KaTeX_AMS-Regular.ttf",
+          "sha256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_AMS-Regular.woff",
+          "sha256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_AMS-Regular.woff2",
+          "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Bold.ttf",
+          "sha256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff",
+          "sha256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+          "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Regular.ttf",
+          "sha256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff",
+          "sha256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+          "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Bold.ttf",
+          "sha256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Bold.woff",
+          "sha256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+          "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Regular.ttf",
+          "sha256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Regular.woff",
+          "sha256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+          "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Bold.ttf",
+          "sha256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Bold.woff",
+          "sha256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Bold.woff2",
+          "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-BoldItalic.ttf",
+          "sha256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-BoldItalic.woff",
+          "sha256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+          "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Italic.ttf",
+          "sha256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Italic.woff",
+          "sha256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Italic.woff2",
+          "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Regular.ttf",
+          "sha256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Regular.woff",
+          "sha256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Main-Regular.woff2",
+          "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-BoldItalic.ttf",
+          "sha256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-BoldItalic.woff",
+          "sha256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+          "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-Italic.ttf",
+          "sha256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-Italic.woff",
+          "sha256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Math-Italic.woff2",
+          "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Bold.ttf",
+          "sha256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Bold.woff",
+          "sha256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+          "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Italic.ttf",
+          "sha256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Italic.woff",
+          "sha256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+          "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Regular.ttf",
+          "sha256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Regular.woff",
+          "sha256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+          "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Script-Regular.ttf",
+          "sha256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Script-Regular.woff",
+          "sha256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Script-Regular.woff2",
+          "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size1-Regular.ttf",
+          "sha256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size1-Regular.woff",
+          "sha256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size1-Regular.woff2",
+          "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size2-Regular.ttf",
+          "sha256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size2-Regular.woff",
+          "sha256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size2-Regular.woff2",
+          "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size3-Regular.ttf",
+          "sha256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size3-Regular.woff",
+          "sha256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size3-Regular.woff2",
+          "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size4-Regular.ttf",
+          "sha256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size4-Regular.woff",
+          "sha256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Size4-Regular.woff2",
+          "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Typewriter-Regular.ttf",
+          "sha256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Typewriter-Regular.woff",
+          "sha256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7"
+        },
+        {
+          "path": "vendor/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+          "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "pdfPage": 4,
+      "printPage": null,
+      "label": "hased for educatio (http://oreilly.com) 938 or corporate@",
+      "url": "http://oreilly.com"
+    },
+    {
+      "pdfPage": 4,
+      "printPage": null,
+      "label": "http://oreilly.com/catalog/errata.csp?isbn=9781492089469",
+      "url": "http://oreilly.com/catalog/errata.csp?isbn=9781492089469"
+    },
+    {
+      "pdfPage": 4,
+      "printPage": null,
+      "label": "bution-NonCommercial-ShareAlike 4.0 I https://greenteapress.com/wp/think-bayes.",
+      "url": "https://greenteapress.com/wp/think-bayes"
+    },
+    {
+      "pdfPage": 12,
+      "printPage": null,
+      "label": "this landing page,",
+      "url": "https://oreil.ly/downey_thinkbayes"
+    },
+    {
+      "pdfPage": 12,
+      "printPage": null,
+      "label": "download the notebooks as a ZIP",
+      "url": "https://oreil.ly/downeyBayesNotebooks"
+    },
+    {
+      "pdfPage": 12,
+      "printPage": null,
+      "label": "If y file.",
+      "url": "https://oreil.ly/downeyBayesNotebooks"
+    },
+    {
+      "pdfPage": 13,
+      "printPage": null,
+      "label": "ectory, s this site.",
+      "url": "https://www.anaconda.com/products/individual"
+    },
+    {
+      "pdfPage": 13,
+      "printPage": null,
+      "label": "you need (and the right versions), the bes Download this Conda environment file nd activate an environment called",
+      "url": "https://oreil.ly/AHjzl"
+    },
+    {
+      "pdfPage": 13,
+      "printPage": null,
+      "label": "https://jupyter.org;",
+      "url": "https://jupyter.org"
+    },
+    {
+      "pdfPage": 13,
+      "printPage": null,
+      "label": "https://numpy.org;",
+      "url": "https://numpy.org"
+    },
+    {
+      "pdfPage": 13,
+      "printPage": null,
+      "label": "https://scipy.org;",
+      "url": "https://scipy.org"
+    },
+    {
+      "pdfPage": 14,
+      "printPage": null,
+      "label": "https://pandas.pydata.org;",
+      "url": "https://pandas.pydata.org"
+    },
+    {
+      "pdfPage": 14,
+      "printPage": null,
+      "label": "https://matplotlib.org;",
+      "url": "https://matplotlib.org"
+    },
+    {
+      "pdfPage": 14,
+      "printPage": null,
+      "label": "https://pypi.org/project/empiricaldist.",
+      "url": "https://pypi.org/project/empiricaldist"
+    },
+    {
+      "pdfPage": 14,
+      "printPage": null,
+      "label": "O’Reilly Media ing, knowledge",
+      "url": "http://oreilly.com"
+    },
+    {
+      "pdfPage": 14,
+      "printPage": null,
+      "label": "of text and video f http://oreilly.com.",
+      "url": "http://oreilly.com"
+    },
+    {
+      "pdfPage": 15,
+      "printPage": null,
+      "label": "re we list errata, examples, a https://oreil.ly/thinkBayes2e.",
+      "url": "https://oreil.ly/thinkBayes2e"
+    },
+    {
+      "pdfPage": 15,
+      "printPage": null,
+      "label": "http://oreilly.com.",
+      "url": "http://oreilly.com"
+    },
+    {
+      "pdfPage": 15,
+      "printPage": null,
+      "label": "http://facebook.com/oreilly",
+      "url": "http://facebook.com/oreilly"
+    },
+    {
+      "pdfPage": 15,
+      "printPage": null,
+      "label": "http://twitter.com/oreillymedia",
+      "url": "http://twitter.com/oreillymedia"
+    },
+    {
+      "pdfPage": 15,
+      "printPage": null,
+      "label": "http://youtube.com/oreillymedia",
+      "url": "http://youtube.com/oreillymedia"
+    },
+    {
+      "pdfPage": 17,
+      "printPage": 1,
+      "label": "famous experiment",
+      "url": "https://oreil.ly/iggYX"
+    },
+    {
+      "pdfPage": 17,
+      "printPage": 1,
+      "label": "To introduce conditional p by Tversky and Kahneman,",
+      "url": "https://oreil.ly/iggYX"
+    },
+    {
+      "pdfPage": 18,
+      "printPage": 2,
+      "label": "u were inclined to choos Stephen J. Gould wrote:",
+      "url": "https://oreil.ly/VKSq8"
+    },
+    {
+      "pdfPage": 18,
+      "printPage": 2,
+      "label": "this example homunculus an’t just be a b",
+      "url": "https://oreil.ly/OGUSt"
+    },
+    {
+      "pdfPage": 18,
+      "printPage": 2,
+      "label": "turns out to be se a simple defi‐",
+      "url": "https://oreil.ly/bPMVj"
+    },
+    {
+      "pdfPage": 18,
+      "printPage": 2,
+      "label": "At this point I shoul surprisingly difficult. nition for now and re",
+      "url": "https://oreil.ly/bPMVj"
+    },
+    {
+      "pdfPage": 18,
+      "printPage": 2,
+      "label": "set, we can compute p General Social Survey",
+      "url": "http://gss.norc.org"
+    },
+    {
+      "pdfPage": 20,
+      "printPage": 4,
+      "label": "ction of women in this dataset is higher than in t the GSS doesn’t include people living in institutions , and those populations are more likely to be male.",
+      "url": "https://gss.norc.org/faq"
+    },
+    {
+      "pdfPage": 21,
+      "printPage": 5,
+      "label": "proposi‐ nd",
+      "url": "https://oreil.ly/LPFCW"
+    },
+    {
+      "pdfPage": 21,
+      "printPage": 5,
+      "label": "“Conj tions, other",
+      "url": "https://oreil.ly/LPFCW"
+    },
+    {
+      "pdfPage": 27,
+      "printPage": 11,
+      "label": "uestions to the https://oreil.ly/",
+      "url": "https://oreil.ly/onK2P"
+    },
+    {
+      "pdfPage": 27,
+      "printPage": 11,
+      "label": "survey onK2P)",
+      "url": "https://oreil.ly/onK2P"
+    },
+    {
+      "pdfPage": 29,
+      "printPage": 13,
+      "label": "generator expression",
+      "url": "https://oreil.ly/pSYq8"
+    },
+    {
+      "pdfPage": 30,
+      "printPage": 14,
+      "label": "famous quote something like",
+      "url": "https://oreil.ly/Tuwq9"
+    },
+    {
+      "pdfPage": 33,
+      "printPage": 17,
+      "label": "urn problem:",
+      "url": "https://oreil.ly/9lfxX"
+    },
+    {
+      "pdfPage": 42,
+      "printPage": 26,
+      "label": "Monty Hall Problem. and only chooses Door",
+      "url": "https://oreil.ly/AgF9q"
+    },
+    {
+      "pdfPage": 58,
+      "printPage": 42,
+      "label": "Bayesian Data Analysis:",
+      "url": "https://oreil.ly/kQyL4"
+    },
+    {
+      "pdfPage": 60,
+      "printPage": 44,
+      "label": "we spin the coin n tim binomial distribution:",
+      "url": "https://oreil.ly/JViRz"
+    },
+    {
+      "pdfPage": 60,
+      "printPage": 44,
+      "label": "binomial coeffi‐",
+      "url": "https://oreil.ly/tQxkO"
+    },
+    {
+      "pdfPage": 60,
+      "printPage": 44,
+      "label": "cient,",
+      "url": "https://oreil.ly/tQxkO"
+    },
+    {
+      "pdfPage": 69,
+      "printPage": 53,
+      "label": "f the universe. Currently, our best es 0.02 billion years in either direction.",
+      "url": "https://oreil.ly/nzBbe"
+    },
+    {
+      "pdfPage": 69,
+      "printPage": 53,
+      "label": "If you are interested in this hist The Theory That Would Not Die.",
+      "url": "https://oreil.ly/YBdoB"
+    },
+    {
+      "pdfPage": 70,
+      "printPage": 54,
+      "label": "social show",
+      "url": "https://oreil.ly/JREeB"
+    },
+    {
+      "pdfPage": 70,
+      "printPage": 54,
+      "label": "Whenever you s desirability bias, themselves in th",
+      "url": "https://oreil.ly/JREeB"
+    },
+    {
+      "pdfPage": 70,
+      "printPage": 54,
+      "label": "hemselves in the most p randomized response.",
+      "url": "https://oreil.ly/ZCcGm"
+    },
+    {
+      "pdfPage": 73,
+      "printPage": 57,
+      "label": "Fifty Challenging Problems in",
+      "url": "https://oreil.ly/Dy3RM"
+    },
+    {
+      "pdfPage": 73,
+      "printPage": 57,
+      "label": "I found the Train Proble Probability with Solutions:",
+      "url": "https://oreil.ly/Dy3RM"
+    },
+    {
+      "pdfPage": 76,
+      "printPage": 60,
+      "label": "over and over, using mean squared error",
+      "url": "https://oreil.ly/gPTjv"
+    },
+    {
+      "pdfPage": 77,
+      "printPage": 61,
+      "label": "e distrib Science.",
+      "url": "https://oreil.ly/KJkJm"
+    },
+    {
+      "pdfPage": 81,
+      "printPage": 65,
+      "label": "this Wikipedia page c Intelligence in World",
+      "url": "https://oreil.ly/YyfsJ"
+    },
+    {
+      "pdfPage": 81,
+      "printPage": 65,
+      "label": "ligence in World War II”, Journal of the Am available in the CIA’s online reading room.",
+      "url": "https://oreil.ly/sC3zT"
+    },
+    {
+      "pdfPage": 82,
+      "printPage": 66,
+      "label": "rabbits eally kn",
+      "url": "https://oreil.ly/s10fM"
+    },
+    {
+      "pdfPage": 83,
+      "printPage": 67,
+      "label": "camera trap I compare th",
+      "url": "https://oreil.ly/Whza0"
+    },
+    {
+      "pdfPage": 83,
+      "printPage": 67,
+      "label": "This article from the Pew Research Center",
+      "url": "https://oreil.ly/TlNxi"
+    },
+    {
+      "pdfPage": 83,
+      "printPage": 67,
+      "label": "Doomsday argument of future members of",
+      "url": "https://oreil.ly/RsE21"
+    },
+    {
+      "pdfPage": 84,
+      "printPage": 68,
+      "label": "ent says we can use the total n Population Reference Bureau, t 108 billion.",
+      "url": "https://oreil.ly/xklTT"
+    },
+    {
+      "pdfPage": 87,
+      "printPage": 71,
+      "label": "Information Theory,",
+      "url": "https://oreil.ly/QUZjD"
+    },
+    {
+      "pdfPage": 87,
+      "printPage": 71,
+      "label": "I’ll use Bayes’s rule to solve anot Inference, and Learning Algorithms:",
+      "url": "https://oreil.ly/QUZjD"
+    },
+    {
+      "pdfPage": 92,
+      "printPage": 76,
+      "label": "ease) were able to distinguish (you can read the paper here)",
+      "url": "https://oreil.ly/MHwoG"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "a blog post about",
+      "url": "https://oreil.ly/SPbMo"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "If it.",
+      "url": "https://oreil.ly/SPbMo"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "interview question that appeared on glassdoor.com,",
+      "url": "https://oreil.ly/M1c1I"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "n and fre‐ I wrote a",
+      "url": "https://oreil.ly/uLxa8"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "quentist interpretati blog article about it.",
+      "url": "https://oreil.ly/uLxa8"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "According to the CDC, lung cancer than nonsm",
+      "url": "https://oreil.ly/NOL9X"
+    },
+    {
+      "pdfPage": 97,
+      "printPage": 81,
+      "label": "Also according to the CDC, that someone has lung cance",
+      "url": "https://oreil.ly/t1RlL"
+    },
+    {
+      "pdfPage": 115,
+      "printPage": 99,
+      "label": "Poisson process, als. As an examp",
+      "url": "https://oreil.ly/d5de3"
+    },
+    {
+      "pdfPage": 115,
+      "printPage": 99,
+      "label": "sonable simplifications (https://oreil.ly/oeTQU)",
+      "url": "https://oreil.ly/oeTQU"
+    },
+    {
+      "pdfPage": 116,
+      "printPage": 100,
+      "label": "Poisson distribution",
+      "url": "https://oreil.ly/n4IYT"
+    },
+    {
+      "pdfPage": 117,
+      "printPage": 101,
+      "label": "data from previous World Cups, per game, on average. So I’ll set the",
+      "url": "https://oreil.ly/jAYJ5"
+    },
+    {
+      "pdfPage": 118,
+      "printPage": 102,
+      "label": "gamma distribution,",
+      "url": "https://oreil.ly/77sAa"
+    },
+    {
+      "pdfPage": 124,
+      "printPage": 108,
+      "label": "h team has a constant goa exponential distribution.",
+      "url": "https://oreil.ly/aJvpl"
+    },
+    {
+      "pdfPage": 127,
+      "printPage": 111,
+      "label": "http://www.nhl.com, 010-11 season. The d",
+      "url": "http://www.nhl.com"
+    },
+    {
+      "pdfPage": 129,
+      "printPage": 113,
+      "label": "how The Price is Right. It is Bayesian decision analysis.",
+      "url": "https://oreil.ly/3HumB"
+    },
+    {
+      "pdfPage": 130,
+      "printPage": 114,
+      "label": "an example ian Methods",
+      "url": "https://oreil.ly/sBWRR"
+    },
+    {
+      "pdfPage": 130,
+      "printPage": 114,
+      "label": "Probabl‐",
+      "url": "https://oreil.ly/IEbjn"
+    },
+    {
+      "pdfPage": 130,
+      "printPage": 114,
+      "label": "This problem is inspired by an example in Cameron istic Programming and Bayesian Methods for Hackers.",
+      "url": "https://oreil.ly/IEbjn"
+    },
+    {
+      "pdfPage": 130,
+      "printPage": 114,
+      "label": "ribution of prices, we can take advanta fans of the show keep detailed records.",
+      "url": "https://oreil.ly/GKH0F"
+    },
+    {
+      "pdfPage": 131,
+      "printPage": 115,
+      "label": "e sample to estimate read about it online.",
+      "url": "https://mathisonian.github.io/kde"
+    },
+    {
+      "pdfPage": 143,
+      "printPage": 127,
+      "label": "nalysis of this problem is in Click here to run this notebook on Colab.",
+      "url": "https://oreil.ly/HpHG3"
+    },
+    {
+      "pdfPage": 143,
+      "printPage": 127,
+      "label": "Green Tea Press es from a short-r",
+      "url": "https://greenteapress.com"
+    },
+    {
+      "pdfPage": 145,
+      "printPage": 129,
+      "label": "In “The Euro Problem” on page 43 I presented a proble Information Theory, Inference, and Learning Algorithms:",
+      "url": "https://oreil.ly/ZxSO7"
+    },
+    {
+      "pdfPage": 147,
+      "printPage": 131,
+      "label": "gth of the evi Bayes factor",
+      "url": "https://oreil.ly/641Na"
+    },
+    {
+      "pdfPage": 150,
+      "printPage": 134,
+      "label": "far in this chapter is sometim statistical hypothesis testing.",
+      "url": "https://oreil.ly/RYihR"
+    },
+    {
+      "pdfPage": 155,
+      "printPage": 139,
+      "label": "Thompson sampling: robability of choosing",
+      "url": "https://oreil.ly/YgExH"
+    },
+    {
+      "pdfPage": 158,
+      "printPage": 142,
+      "label": "Bayesian decision theory, of a decision-making pro‐",
+      "url": "https://oreil.ly/KnMeS"
+    },
+    {
+      "pdfPage": 158,
+      "printPage": 142,
+      "label": "SAT goal",
+      "url": "https://oreil.ly/AdzPO"
+    },
+    {
+      "pdfPage": 159,
+      "printPage": 143,
+      "label": "choose each question based on respon‐",
+      "url": "https://oreil.ly/b20lk"
+    },
+    {
+      "pdfPage": 159,
+      "printPage": 143,
+      "label": "test to be “adaptive”, whic ses to previous questions.",
+      "url": "https://oreil.ly/b20lk"
+    },
+    {
+      "pdfPage": 174,
+      "printPage": 158,
+      "label": "The Elo rating system chess.",
+      "url": "https://oreil.ly/KooQn"
+    },
+    {
+      "pdfPage": 174,
+      "printPage": 158,
+      "label": "B logistic function:",
+      "url": "https://oreil.ly/1BlBZ"
+    },
+    {
+      "pdfPage": 177,
+      "printPage": 161,
+      "label": "n of Bayesian spam filters.",
+      "url": "https://oreil.ly/SsIt7"
+    },
+    {
+      "pdfPage": 177,
+      "printPage": 161,
+      "label": "rm Ecological Research Sta‐ “Ecological Sexual Dimor‐ unity of Antarctic Penguins",
+      "url": "https://oreil.ly/hTOM9"
+    },
+    {
+      "pdfPage": 177,
+      "printPage": 161,
+      "label": "tion in Antarctica (see Gorman, Williams, and Fraser, “Ecological Sexual Dimor‐ phism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)”, March 2014). We’ll use this data to classify penguins by species.",
+      "url": "https://oreil.ly/hTOM9"
+    },
+    {
+      "pdfPage": 177,
+      "printPage": 161,
+      "label": "phism and Environ (Genus Pygoscelis)”,",
+      "url": "https://oreil.ly/hTOM9"
+    },
+    {
+      "pdfPage": 178,
+      "printPage": 162,
+      "label": "top margin of the beak.",
+      "url": "https://oreil.ly/jWXzg"
+    },
+    {
+      "pdfPage": 189,
+      "printPage": 173,
+      "label": "ype of classification. sexual dimorphism,",
+      "url": "https://oreil.ly/xk0KF"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "Student’s t-test, esis significance",
+      "url": "https://oreil.ly/fvdWj"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "ical infer p-value.",
+      "url": "https://oreil.ly/rsG85"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "cenario is a Student’s t-test, null hypothesis significance",
+      "url": "https://oreil.ly/GRRnL"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "and the testing.",
+      "url": "https://oreil.ly/GRRnL"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "PhD dissertation in educational psychology example in a statistics textbook from 1989 a",
+      "url": "https://oreil.ly/5AW5n"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "tion in educational statistics textbook tories.",
+      "url": "https://oreil.ly/OvDQA"
+    },
+    {
+      "pdfPage": 191,
+      "printPage": 175,
+      "label": "which DASL,",
+      "url": "https://oreil.ly/K4Eev"
+    },
+    {
+      "pdfPage": 192,
+      "printPage": 176,
+      "label": "dataset is available here.",
+      "url": "https://oreil.ly/FFdP5"
+    },
+    {
+      "pdfPage": 201,
+      "printPage": 185,
+      "label": "Basu’s theorem,",
+      "url": "https://oreil.ly/c5q5v"
+    },
+    {
+      "pdfPage": 205,
+      "printPage": 189,
+      "label": "effect size phenomen",
+      "url": "https://oreil.ly/LDmTY"
+    },
+    {
+      "pdfPage": 205,
+      "printPage": 189,
+      "label": "a question that appeared on Reddit.",
+      "url": "https://oreil.ly/ZthGE"
+    },
+    {
+      "pdfPage": 206,
+      "printPage": 190,
+      "label": "Variability Hypothesis among males than amo",
+      "url": "https://oreil.ly/bFkI7"
+    },
+    {
+      "pdfPage": 206,
+      "printPage": 190,
+      "label": "Behavioral Risk Factor Surveillance System ed heights from 154,407 men and 254,722",
+      "url": "https://oreil.ly/xhFLF"
+    },
+    {
+      "pdfPage": 206,
+      "printPage": 190,
+      "label": "coeffi‐ . It is a",
+      "url": "https://oreil.ly/yAMmQ"
+    },
+    {
+      "pdfPage": 206,
+      "printPage": 190,
+      "label": "But to compare v cient of variation dimensionless me",
+      "url": "https://oreil.ly/yAMmQ"
+    },
+    {
+      "pdfPage": 207,
+      "printPage": 191,
+      "label": "Weibull distribution he distribution of life",
+      "url": "https://oreil.ly/tj7hO"
+    },
+    {
+      "pdfPage": 215,
+      "printPage": 199,
+      "label": "researchers ran an experiment lbs. Here is their description of",
+      "url": "https://oreil.ly/WEbsd"
+    },
+    {
+      "pdfPage": 223,
+      "printPage": 207,
+      "label": "n effort to this article.",
+      "url": "https://oreil.ly/aJOdC"
+    },
+    {
+      "pdfPage": 224,
+      "printPage": 208,
+      "label": "N, K, and n, the probabilit hypergeometric distribution:",
+      "url": "https://oreil.ly/6flcf"
+    },
+    {
+      "pdfPage": 224,
+      "printPage": 208,
+      "label": "binomial coefficient, pulation of size K.",
+      "url": "https://oreil.ly/JO7Hi"
+    },
+    {
+      "pdfPage": 228,
+      "printPage": 212,
+      "label": "multinomial distribution:",
+      "url": "https://oreil.ly/JVK5H"
+    },
+    {
+      "pdfPage": 231,
+      "printPage": 215,
+      "label": "an excellent blog post, estimate the number",
+      "url": "https://oreil.ly/YfzzJ"
+    },
+    {
+      "pdfPage": 236,
+      "printPage": 220,
+      "label": "mark and recapture ulations. They also h",
+      "url": "https://oreil.ly/wW98J"
+    },
+    {
+      "pdfPage": 237,
+      "printPage": 221,
+      "label": "In an excellent paper, used in epidemiology",
+      "url": "https://oreil.ly/9yzPi"
+    },
+    {
+      "pdfPage": 239,
+      "printPage": 223,
+      "label": "were male,",
+      "url": "https://oreil.ly/JGnGY"
+    },
+    {
+      "pdfPage": 242,
+      "printPage": 226,
+      "label": "ple of logistic regression, I’ll s Bayesian Methods for Hackers.",
+      "url": "https://oreil.ly/ocqjc"
+    },
+    {
+      "pdfPage": 242,
+      "printPage": 226,
+      "label": "this paper,",
+      "url": "https://oreil.ly/Ths7X"
+    },
+    {
+      "pdfPage": 242,
+      "printPage": 226,
+      "label": "Davidson-Pilon.",
+      "url": "https://oreil.ly/d0VAE"
+    },
+    {
+      "pdfPage": 253,
+      "printPage": 237,
+      "label": "others you, Empirical",
+      "url": "https://oreil.ly/zCxCm"
+    },
+    {
+      "pdfPage": 253,
+      "printPage": 237,
+      "label": "you are not al Bayes method,",
+      "url": "https://oreil.ly/zCxCm"
+    },
+    {
+      "pdfPage": 255,
+      "printPage": 239,
+      "label": "read more about it in this blog post.",
+      "url": "https://oreil.ly/ZA6GD"
+    },
+    {
+      "pdfPage": 255,
+      "printPage": 239,
+      "label": "te of attention deficit hyperactivity disorder (ADHD) as a “Attention Deficit–Hyperactivity Disorder and Month of",
+      "url": "https://oreil.ly/wmdXg"
+    },
+    {
+      "pdfPage": 255,
+      "printPage": 239,
+      "label": "function of birth m School Enrollment”.",
+      "url": "https://oreil.ly/wmdXg"
+    },
+    {
+      "pdfPage": 257,
+      "printPage": 241,
+      "label": "And by “used to” 27 inches of snow",
+      "url": "https://oreil.ly/3sstj"
+    },
+    {
+      "pdfPage": 257,
+      "printPage": 241,
+      "label": "e can test my conjecture with data. No Blue Hill Meteorological Observatory, cord in North America.",
+      "url": "https://oreil.ly/uGQhF"
+    },
+    {
+      "pdfPage": 257,
+      "printPage": 241,
+      "label": "National Oce‐ m the Blue Hill",
+      "url": "https://oreil.ly/Bes2k"
+    },
+    {
+      "pdfPage": 257,
+      "printPage": 241,
+      "label": "Data from this and many other weathe anic and Atmospheric Administration Observatory from May 11, 1967 to May",
+      "url": "https://oreil.ly/Bes2k"
+    },
+    {
+      "pdfPage": 260,
+      "printPage": 244,
+      "label": "have to choose priors. To least squares regression.",
+      "url": "https://oreil.ly/Xs46r"
+    },
+    {
+      "pdfPage": 266,
+      "printPage": 250,
+      "label": "plot the world including me,",
+      "url": "https://oreil.ly/ZcDvx"
+    },
+    {
+      "pdfPage": 284,
+      "printPage": 268,
+      "label": "3Blue1Brown recommend it",
+      "url": "https://oreil.ly/UsGcp"
+    },
+    {
+      "pdfPage": 284,
+      "printPage": 268,
+      "label": "ube channe this video",
+      "url": "https://oreil.ly/k5Fsq"
+    },
+    {
+      "pdfPage": 290,
+      "printPage": 274,
+      "label": "model, PyMC3 uses o No U-Turn Sampler ethods we have.",
+      "url": "https://oreil.ly/8LrA2"
+    },
+    {
+      "pdfPage": 292,
+      "printPage": 276,
+      "label": "“Happiness and Life Satisfaction” scusses (among many other things",
+      "url": "https://oreil.ly/LL9PW"
+    },
+    {
+      "pdfPage": 292,
+      "printPage": 276,
+      "label": "and happiness, both betwee “World Happiness Report”, that explores the relations",
+      "url": "https://worldhappiness.report"
+    },
+    {
+      "pdfPage": 292,
+      "printPage": 276,
+      "label": "hin countries, and over time. It cites the results of a multiple regression analysis appiness and six potentially predictive",
+      "url": "https://oreil.ly/lDSXe"
+    },
+    {
+      "pdfPage": 293,
+      "printPage": 277,
+      "label": "ble is the national Gallup World Poll:",
+      "url": "https://oreil.ly/CG7TB"
+    },
+    {
+      "pdfPage": 293,
+      "printPage": 277,
+      "label": "the natural logarithm of purchasing power parity",
+      "url": "https://oreil.ly/95fTi"
+    },
+    {
+      "pdfPage": 296,
+      "printPage": 280,
+      "label": "mples, estimated by KDE, “highest-density interval”.",
+      "url": "https://oreil.ly/dEqMw"
+    },
+    {
+      "pdfPage": 299,
+      "printPage": 283,
+      "label": "the PyMC3 documentation",
+      "url": "https://oreil.ly/lzqYU"
+    },
+    {
+      "pdfPage": 300,
+      "printPage": 284,
+      "label": "the PyMC3 documentation",
+      "url": "https://oreil.ly/ESTCO"
+    },
+    {
+      "pdfPage": 303,
+      "printPage": 287,
+      "label": "I am a frequent reader and http://reddit.com/r/statistics.",
+      "url": "http://reddit.com/r/statistics"
+    },
+    {
+      "pdfPage": 304,
+      "printPage": 288,
+      "label": "Zhang et al.",
+      "url": "https://oreil.ly/KemRG"
+    },
+    {
+      "pdfPage": 307,
+      "printPage": 291,
+      "label": "y to be invasive and less this page on carcinoma)",
+      "url": "https://oreil.ly/MPAk1"
+    },
+    {
+      "pdfPage": 311,
+      "printPage": 295,
+      "label": "this blog post, use to estimate",
+      "url": "https://oreil.ly/4sqI1"
+    },
+    {
+      "pdfPage": 319,
+      "printPage": 303,
+      "label": "a blog post by Rasmus Bååth, wrote:",
+      "url": "https://oreil.ly/74FXm"
+    }
+  ],
+  "thirdPartyReview": {
+    "status": "not-independently-cleared",
+    "acknowledgedContributors": [
+      "David MacKay",
+      "Cameron Davidson-Pilon",
+      "Rasmus Bååth"
+    ],
+    "note": "The source preface says examples/exercises from these creators were used with permission. The project has not reviewed those permission agreements; do not treat that as a separate license from them. Original quoted passages, data references and trademarks retain their own rights. Embedded links are source references, not grants of permission. No separate raw datasets are distributed by this site."
+  }
+}

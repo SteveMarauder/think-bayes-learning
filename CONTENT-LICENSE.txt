@@ -1,13 +1,38 @@
 SOURCE BOOK AND ADAPTED EDUCATIONAL MATERIAL
 
+PROJECT PURPOSE (reviewed 2026-11-24)
+
+Updating Beliefs is a free, noncommercial personal learning project for
+educational exchange and sharing project work. It currently has no advertising,
+paid content, fundraising, sponsorship placements or commercial lead generation.
+This describes the actual current project; it is not immunity from copyright
+infringement and does not grant rights the project does not hold. Any future
+monetization or commercial use must be reassessed before introduction.
+
+繁體中文：本站僅為個人學習、教育交流及專案成果分享而製作，免費開放，
+目前無廣告、付費內容、募款或商業導流。本站為獨立學習伴讀，並非原作者
+或出版社的官方翻譯、合作或背書網站。「僅供學習」不構成侵權免責；
+素材使用仍須符合各自授權。教材與改作採 CC BY-NC-SA 4.0，程式碼另採 MIT。
+
+日本語：個人学習・教育交流・制作成果の共有を目的とする無料・非営利の
+プロジェクトです。現在、広告・有料コンテンツ・募金・商業目的の誘導は
+ありません。著者・出版社の公式翻訳・提携・推奨サイトではありません。
+学習目的の表示は侵害の免責ではなく、各素材の許諾条件に従う必要があります。
+
 Think Bayes: Bayesian Statistics in Python, Second Edition
 Allen B. Downey, 2021. ISBN 9781492089469.
+Copyright © 2021 Allen B. Downey. All rights reserved.
 https://allendowney.github.io/ThinkBayes2/
 https://github.com/AllenDowney/ThinkBayes2
 
 The book states that it is available under Creative Commons
 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0):
 https://creativecommons.org/licenses/by-nc-sa/4.0/
+The unmodified supplied source PDF's copyright page (PDF page 4) also states
+this license. The complete license is included in CC-BY-NC-SA-4.0.txt.
+Original source disclaimers remain in that PDF: information/code is supplied
+without assurances of accuracy or suitability, use is at the user's risk,
+and any separate third-party technology rights must be respected.
 
 The source PDF in assets/think-bayes-2e.pdf retains the original English text,
 charts, equations, authorship and source notices. The educational guides,
@@ -47,3 +72,40 @@ Generation provenance and normalized reproduction prompts are recorded in
 assets/visuals/generation-prompts.json. These supplementary educational materials
 are offered with the site's adapted content under CC BY-NC-SA 4.0; application
 code remains separately licensed under MIT. No endorsement is implied.
+
+ADDITIONAL WELCOME ARTWORK AND AI OUTPUT
+
+assets/welcome/belief-sculpture.webp and belief-sculpture.jpg were generated
+for this project with the built-in image-generation tool, with format encoding
+only. They are decorative metaphors, not data plots or original book artwork.
+Provenance: assets/welcome/generation.json. The project offers its licensable
+contributions in this artwork and the visual supplements under CC BY-NC-SA 4.0
+only to the extent it holds those rights. This does not assert exclusive
+copyright over AI-only output or guarantee that such output is copyrightable.
+
+THIRD-PARTY MATERIAL AND SOFTWARE
+
+The source preface (PDF page 15) acknowledges examples/problems used with
+permission from David MacKay, Cameron Davidson-Pilon and Rasmus Bååth.
+Those original credits are retained, but the project has not obtained or
+reviewed their individual permission agreements. Their work, third-party
+quotations, data sources and separately credited material are not blanket
+relicensed by this site's MIT or educational-content notices. Reference links
+are provenance, not independent evidence of permission. No separate raw
+datasets are distributed here; data excerpts within the source remain.
+
+The book's publisher/author trademark notices remain in the PDF. O'Reilly
+logos, cover branding and other trademarks are not licensed by the book's CC
+grant. This site's name, original SVG mark and generated artwork do not imply
+official association, sponsorship or endorsement.
+
+KaTeX code uses MIT, but the bundled KaTeX fonts' own embedded notices state
+SIL Open Font License 1.1. See vendor/KATEX-FONTS-OFL.txt for the full font
+license, original copyright notices and Reserved Font Names.
+DOMPurify's embedded Babel/regenerator helpers retain MIT notices; see
+vendor/BABEL-HELPERS-LICENSE.txt. Existing license headers are unchanged.
+
+See THIRD-PARTY-NOTICES.txt for bundled libraries, fonts and attribution,
+rights-manifest.json for file hashes and original embedded reference URLs,
+and RIGHTS-AUDIT.md for the review scope and unresolved third-party questions.
+The visible, trilingual source and license page is available at #/licenses.
