@@ -2,6 +2,14 @@
 
 A learner-friendly bilingual companion to Allen B. Downey's **Think Bayes: Bayesian Statistics in Python, second edition (2021)**, with faithful Traditional Chinese translations of the book's main text.
 
+## Version 3.4: interleaved original and Chinese reading
+
+The Chinese-English mode now places each source passage immediately above its corresponding Traditional Chinese translation. Source boundaries are recovered from the supplied PDF's text layout, while stored source/translation ranges preserve the existing text and Markdown exactly. Identical code/output and language-independent equations can be shown once as shared content. The PDF remains available as an optional panel below the reading flow.
+
+New readers start in interleaved mode. Existing Chinese-only preferences switch to interleaved mode once for this release; selecting Chinese afterwards is remembered. English and Japanese preferences, lesson/quiz IDs, read progress, imported backups and theme choices remain compatible. Paragraph anchors are identical across English, Chinese and interleaved modes.
+
+`node scripts/verify-parallel-reader.mjs` verifies all 195 sections: source/translation hashes, complete contiguous ranges, no dropped or duplicated text, stable paragraph identities, and escaped source HTML. The paragraph alignment supports comparison with the original PDF; translations retain their existing draft status.
+
 ## Version 3.3: standalone welcome cover
 
 The root route is now a full-screen welcome cover with a generated scientific sculpture, animated observation particles, subtle pointer parallax, staged typography and a prominent Enter learning link to `#/map`. It uses the same light/dark and language preferences as the course, without showing course navigation before entry. The original learning/source home remains at `#/home`; original chapter, exercise, progress and source-anchor links remain usable. Clicking the course brand returns to the cover.

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "sections": 195,
+  "pairs": 3116,
+  "source": "Existing supplied 2021 second-edition PDF extraction; source hashes unchanged.",
+  "translation": "Existing Traditional Chinese Markdown; all text and metadata preserved.",
+  "alignment": "PDF text-layout boundaries with structure/identifier-aware alignment; mixed paragraph/formula groups reviewed and refined.",
+  "storage": "UTF-16 character offsets for JavaScript slices; complete contiguous source and translation ranges.",
+  "sharedContent": "Unchanged equations and normalized-identical code/output may render once.",
+  "validation": "node scripts/verify-parallel-reader.mjs"
+}
